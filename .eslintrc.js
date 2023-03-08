@@ -4,11 +4,7 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: [
-        'plugin:react/recommended',
-        'airbnb',
-        'plugin:i18next/recommended',
-    ],
+    extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -17,16 +13,14 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: [
-        'react',
-        '@typescript-eslint',
-        'i18next',
-    ],
+    plugins: ['react', '@typescript-eslint', 'i18next'],
     rules: {
         indent: ['error', 4],
         'react/jsx-indent': ['error', 4],
         'react/jsx-indent-props': ['error', 4],
-        'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
+        'react/jsx-filename-extension': ['error', {
+            extensions: ['.tsx'],
+        }],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'warn',
@@ -36,25 +30,24 @@ module.exports = {
         'react/function-component-definition': 'off',
         'no-shadow': 'off',
         'import/extensions': 'off',
-        'import/no-extraneous-dependencies': 'warn',
+        'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
-        'i18next/no-literal-string': ['error',
-            {
-                markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to'],
-            },
-        ],
-        'max-len': ['error', { code: 120, ignoreComments: true }],
+        'i18next/no-literal-string': ['error', {
+            markupOnly: true,
+            ignoreAttribute: ['data-testid', 'to'],
+        }],
+        'max-len': ['error', {
+            code: 120,
+            ignoreComments: true,
+        }],
     },
     globals: {
         __IS_DEV__: true,
     },
-    overrides: [
-        {
-            files: ['**/srs/**/*.test.{ts,tsx}'],
-            rules: {
-                'i18next/no-literal-string': 'off',
-            },
+    overrides: [{
+        files: ['**/srs/**/*.test.{ts,tsx}'],
+        rules: {
+            'i18next/no-literal-string': 'off',
         },
-    ],
+    }],
 };
