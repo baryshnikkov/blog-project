@@ -1,4 +1,4 @@
-name: linting, testing, building
+name: CI pipeline
 on:
   push:
     branches: [ master ]
