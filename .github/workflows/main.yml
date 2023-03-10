@@ -1,15 +1,14 @@
 name: linting, testing, building
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 jobs:
   pipeline:
-    runs-on: ${{ matrix.os }}
+    runs-on: macos-latest
     strategy:
       matrix:
-        os: [ ubuntu-latest ]
         node-version: [ 17.x ]
 
     steps:
