@@ -23,11 +23,11 @@ ModalNormalTheme.args = {
     isOpen: true,
 };
 
-export const ModalDarkTheme = Template.bind({});
-ModalDarkTheme.args = {
-    children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad blanditiis consequatur '
-            + 'dignissimos esse explicabo fuga hic ipsam iste iure mollitia nisi optio praesentium quasi '
-            + 'quia quo reprehenderit vero voluptas, voluptatibus!',
-    isOpen: true,
-};
-ModalDarkTheme.decorators = [ThemeDecorator(Theme.DARK)];
+// export const ModalDarkTheme = Template.bind({});
+// ModalDarkTheme.args = {
+//     children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad blanditiis consequatur '
+//             + 'dignissimos esse explicabo fuga hic ipsam iste iure mollitia nisi optio praesentium quasi '
+//             + 'quia quo reprehenderit vero voluptas, voluptatibus!',
+//     isOpen: true,
+// };
+// ModalDarkTheme.decorators = [ThemeDecorator(Theme.DARK)];
