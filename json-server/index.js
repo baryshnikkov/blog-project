@@ -9,7 +9,7 @@ const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
 
-// небольшая задержка, имитация реального апи
+// Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
 server.use(async (req, res, next) => {
     await new Promise((res) => {
         setTimeout(res, 800);
@@ -40,7 +40,7 @@ server.post('/login', (req, res) => {
 });
 
 // проверяем, авторизован ли пользователь
-// eslint-disable-next-line consistent-return
+// eslint-disable-next-line
 server.use((req, res, next) => {
     if (!req.headers.authorization) {
         return res.status(403).json({ message: 'AUTH ERROR' });
