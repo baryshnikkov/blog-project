@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typecode" }
+  "profile": {
+    "first": "Имя",
+    "lastname": "Фамилия",
+    "age": "11",
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "admin",
+    "avatar": "https://www.softpal.com/portals/97/images/our_happy_clients_profile_low_resolution_images/testimonials_profile44.png"
+  }
 }
