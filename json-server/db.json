@@ -26,9 +26,9 @@
     }
   ],
   "profile": {
-    "first": "Имя",
-    "lastname": "Фамилия",
-    "age": "11",
+    "first": "Tom",
+    "lastname": "Brown",
+    "age": 33,
     "currency": "RUB",
     "country": "Russia",
     "city": "Moscow",
