@@ -1,19 +1,25 @@
-import { memo, useCallback, useEffect } from 'react';
+import {
+    memo, useCallback, useEffect, useMemo,
+} from 'react';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import {
     fetchProfileData,
     getProfileError,
-    getProfileIsLoading,
-    ProfileCard,
-    getProfileReadonly,
     getProfileForm,
-    profileReducer,
+    getProfileIsLoading,
+    getProfileReadonly,
+    getProfileValidateErrors,
     profileActions,
+    ProfileCard,
+    profileReducer,
+    ValidateProfileErrors,
 } from 'entities/Profile';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const initialReducers: ReducerList = {
@@ -21,14 +27,31 @@ const initialReducers: ReducerList = {
 };
 
 const ProfilePage = memo(() => {
+    const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
+    const errors = useSelector(getProfileValidateErrors);
+
+    const validateErrorsTranslates = useMemo(() => ({
+        [ValidateProfileErrors.INCORRECT_FIRST]: t('Некорректное имя'),
+        [ValidateProfileErrors.INCORRECT_LASTNAME]: t('Некорретная фамилия'),
+        [ValidateProfileErrors.INCORRECT_AGE]: t('Некорректный возраст'),
+        [ValidateProfileErrors.INCORRECT_AVATAR]: t('Некорректная ссылка на аватар'),
+        [ValidateProfileErrors.INCORRECT_USERNAME]: t('Некорректное имя пользователя'),
+        [ValidateProfileErrors.INCORRECT_CURRENCY]: t('Некорректная валюта'),
+        [ValidateProfileErrors.INCORRECT_COUNTRY]: t('Некорректная страна'),
+        [ValidateProfileErrors.INCORRECT_CITY]: t('Некорректный город'),
+        [ValidateProfileErrors.NO_DATA]: t('Данные не указаны'),
+        [ValidateProfileErrors.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+    }), [t]);
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
 
     const onChangeFirstname = useCallback((value?: string) => {
@@ -69,6 +92,15 @@ const ProfilePage = memo(() => {
             removeAfterUnmount
         >
             <ProfilePageHeader />
+            {errors?.length && (
+                errors.map((err) => (
+                    <Text
+                        text={validateErrorsTranslates[err]}
+                        theme={TextTheme.ERROR}
+                        key={err}
+                    />
+                ))
+            )}
             <ProfileCard
                 data={formData}
                 isLoading={isLoading}

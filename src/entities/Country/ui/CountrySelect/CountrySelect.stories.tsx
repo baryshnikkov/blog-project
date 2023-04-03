@@ -12,5 +12,5 @@ export default {
 
 const Template: ComponentStory<typeof CountrySelect> = (args) => <CountrySelect {...args} />;
 
-export const DefaultCurrencySelect = Template.bind({});
-DefaultCurrencySelect.args = {};
+export const PrimaryCurrencySelect = Template.bind({});
+PrimaryCurrencySelect.args = {};
