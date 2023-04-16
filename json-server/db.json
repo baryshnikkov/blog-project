@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -88,7 +90,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -175,6 +179,36 @@
       "text": "some comment 4",
       "articleId": "2",
       "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "test 1",
+      "id": "HvIlc4E"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "test2",
+      "id": "VA6CgA8"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "test3",
+      "id": "M-AV8dS"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "test4",
+      "id": "6SIb9L5"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": " ",
+      "id": "k_DhWXD"
     }
   ],
   "users": [
@@ -193,14 +227,28 @@
       "avatar": "https://oboi-plenka.ru/image/cache/catalog/divino/8/208079259-fotooboi-c1-371-divino-panda-3-m-h-2-38-m-1200x800.jpg"
     }
   ],
-  "profile": {
-    "first": "Tom",
-    "lastname": "Brown",
-    "age": 33,
-    "currency": "RUB",
-    "country": "Belarus",
-    "city": "Moscow",
-    "username": "admin",
-    "avatar": "https://www.softpal.com/portals/97/images/our_happy_clients_profile_low_resolution_images/testimonials_profile44.png"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Tom",
+      "lastname": "Brown",
+      "age": 33,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "admin",
+      "avatar": "https://www.softpal.com/portals/97/images/our_happy_clients_profile_low_resolution_images/testimonials_profile44.png"
+    },
+    {
+      "id": "2",
+      "first": "Nika",
+      "lastname": "White",
+      "age": 18,
+      "currency": "EUR",
+      "country": "Belarus",
+      "city": "Minsk",
+      "username": "user",
+      "avatar": "https://oboi-plenka.ru/image/cache/catalog/divino/8/208079259-fotooboi-c1-371-divino-panda-3-m-h-2-38-m-1200x800.jpg"
+    }
+  ]
 }
