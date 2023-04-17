@@ -11,6 +11,10 @@ const data = {
     img: 'img',
     views: 1,
     createdAt: 'createdAt',
+    user: {
+        id: '1',
+        username: 'admin',
+    },
     type: [ArticleTypes.IT],
     blocks: [],
 };

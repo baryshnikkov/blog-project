@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { ArticleList } from 'entities/Article';
 import cls from './ArticlesPage.module.scss';
 
 const ArticlesPage = memo(() => {
@@ -7,7 +8,9 @@ const ArticlesPage = memo(() => {
 
     return (
         <div className={cls.ArticlesPage}>
-            {t('Страница статей')}
+            <ArticleList
+                articles={[]}
+            />
         </div>
     );
 });
