@@ -22,7 +22,7 @@ export const profileSlice = createSlice({
             state.form = state.data;
             state.validateErrors = undefined;
         },
-        updateProfile: (state, action:PayloadAction<Profile>) => {
+        updateProfile: (state, action: PayloadAction<Profile>) => {
             state.form = {
                 ...state.form,
                 ...action.payload,
