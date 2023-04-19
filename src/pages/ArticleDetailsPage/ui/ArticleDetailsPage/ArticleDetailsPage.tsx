@@ -12,6 +12,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { Button } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import {
     fetchCommentsByArticleId,
@@ -48,9 +49,9 @@ const ArticleDetailsPage = memo(() => {
 
     if (!id) {
         return (
-            <div className={classNames('', {}, [])}>
+            <Page className={classNames('', {}, [])}>
                 {t('Статья не найдена')}
-            </div>
+            </Page>
 
         );
     }
@@ -60,7 +61,7 @@ const ArticleDetailsPage = memo(() => {
             reducers={initialReducers}
             removeAfterUnmount
         >
-            <div className={classNames('ArticleDetailsPage', {}, [])}>
+            <Page className={classNames('ArticleDetailsPage', {}, [])}>
                 <Button onClick={onBackToList}>
                     {t('Назад к списку')}
                 </Button>
@@ -76,7 +77,7 @@ const ArticleDetailsPage = memo(() => {
                     comments={comments}
                     isLoading={commentsIsLoading}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 });
