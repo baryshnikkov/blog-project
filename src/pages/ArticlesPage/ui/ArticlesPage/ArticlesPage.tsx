@@ -5,12 +5,15 @@ import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicM
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
+import { Page } from 'shared/ui/Page/Page';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import cls from './ArticlesPage.module.scss';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slices/articlesPageSlice';
 import { getArticlesPageIsLoading } from '../../model/selectors/getArticlesPageIsLoading/getArticlesPageIsLoading';
-import { getArticlesPageError } from '../../model/selectors/getArticlesPageError/getArticlesPageError';
 import { getArticlesPageView } from '../../model/selectors/getArticlesPageView/getArticlesPageView';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { getArticlesPageError } from '../../model/selectors/getArticlesPageError/getArticlesPageError';
 
 const initialReducers: ReducerList = {
     articlesPage: articlesPageReducer,
@@ -28,17 +31,37 @@ const ArticlesPage = memo(() => {
         dispatch(articlesPageActions.setView(view));
     }, [dispatch]);
 
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNextArticlesPage());
+    }, [dispatch]);
+
     useInitialEffect(() => {
-        dispatch(fetchArticlesList());
         dispatch(articlesPageActions.initState());
+        dispatch(fetchArticlesList({
+            page: 1,
+        }));
     });
+
+    if (error) {
+        return (
+            <div className={cls.error}>
+                <Text
+                    title={t('Не получилось получить данные с сервера')}
+                    theme={TextTheme.ERROR}
+                />
+            </div>
+        );
+    }
 
     return (
         <DynamicModuleLoader
             reducers={initialReducers}
             removeAfterUnmount
         >
-            <div className={cls.ArticlesPage}>
+            <Page
+                className={cls.ArticlesPage}
+                onScrollEnd={onLoadNextPart}
+            >
                 <ArticleViewSelector
                     view={view}
                     onViewClick={onChangeView}
@@ -48,7 +71,7 @@ const ArticlesPage = memo(() => {
                     view={view}
                     isLoading={isLoading}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 });
