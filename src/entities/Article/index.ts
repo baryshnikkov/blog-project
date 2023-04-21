@@ -1,7 +1,15 @@
 import { ArticleDetails } from 'entities/Article/ui/ArticleDetails/ArticleDetails';
 import { getArticleDetailsData } from './model/selectors/getArticleDetailsData/getArticleDetailsData';
-import { Article, ArticleDetailsSchema, ArticleView } from './model/types/article';
+import {
+    Article,
+    ArticleDetailsSchema,
+    ArticleSortField,
+    ArticleTypes,
+    ArticleView,
+} from './model/types/article';
 import { ArticleList } from './ui/ArticleList/ArticleList';
+import { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
+import { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
 import { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelector';
 
 export {
@@ -12,4 +20,8 @@ export {
     ArticleList,
     Article,
     ArticleViewSelector,
+    ArticleSortField,
+    ArticleSortSelector,
+    ArticleTypes,
+    ArticleTypeTabs,
 };
