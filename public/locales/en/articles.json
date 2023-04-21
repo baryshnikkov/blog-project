@@ -1,3 +1,16 @@
 {
-  "Не получилось получить данные с сервера": "Failed to get data from server"
+  "Не получилось получить данные с сервера": "Failed to get data from server",
+  "Сортировать по": "Sort by",
+  "по": "by",
+  "Поиск": "Search",
+  "убыванию": "descending",
+  "возрастанию": "ascending",
+  "дате создания": "creation date",
+  "названию": "title",
+  "просмотрам": "views",
+  "Все": "All",
+  "Айти": "IT",
+  "Наука":"Science",
+  "Экономика": "Economic",
+  "Статьи не найдены": "Articles not found"
 }
