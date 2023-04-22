@@ -9,6 +9,13 @@
 
 .links {
     margin-left: auto;
-    display: flex;
-    gap: 15px;
+}
+
+.appName {
+    margin-left: 12px;
+    width: var(--sidebar-width);
+}
+
+.linkCreate {
+    margin-right: 12px;
 }
