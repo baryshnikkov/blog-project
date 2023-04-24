@@ -50,7 +50,7 @@ const ArticleDetailsPage = memo(() => {
         dispatch(fetchArticleRecommendations());
     });
 
-    if (!id) {
+    if (!id && __PROJECT__ !== 'storybook') {
         return (
             <Page className={classNames('', {}, [])}>
                 {t('Статья не найдена')}
@@ -66,7 +66,7 @@ const ArticleDetailsPage = memo(() => {
         >
             <Page className={classNames('ArticleDetailsPage', {}, [])}>
                 <ArticleDetailsPageHeader />
-                <ArticleDetails id={id} />
+                <ArticleDetails id={id!} />
                 <Text
                     className={cls.commentTitle}
                     size={TextSize.L}
