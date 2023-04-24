@@ -47,7 +47,7 @@ module.exports = {
             ignoreAttribute: ['data-testid', 'to', 'target'],
         }],
         'max-len': ['error', {
-            code: 120,
+            code: 135,
             ignoreComments: true,
         }],
         'react-hooks/rules-of-hooks': 'error',
