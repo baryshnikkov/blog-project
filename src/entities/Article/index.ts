@@ -1,4 +1,4 @@
-import { ArticleDetails } from 'entities/Article/ui/ArticleDetails/ArticleDetails';
+import { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 import { getArticleDetailsData } from './model/selectors/getArticleDetailsData/getArticleDetailsData';
 import {
     Article,
