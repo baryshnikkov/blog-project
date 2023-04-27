@@ -18,6 +18,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'mb',
     ],
     rules: {
         indent: ['error', 4],
@@ -53,6 +54,7 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
+        'mb/path-checker': 'error',
     },
     globals: {
         __IS_DEV__: true,
