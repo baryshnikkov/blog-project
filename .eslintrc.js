@@ -45,7 +45,15 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'i18next/no-literal-string': ['error', {
             markupOnly: true,
-            ignoreAttribute: ['data-testid', 'to', 'target'],
+            ignoreAttribute: [
+                'data-testid',
+                'to',
+                'target',
+                'justify',
+                'align',
+                'direction',
+                'gap',
+            ],
         }],
         'max-len': ['error', {
             code: 135,
@@ -62,7 +70,7 @@ module.exports = {
         __PROJECT__: true,
     },
     overrides: [{
-        files: ['**/src/**/*.test.{ts,tsx}'],
+        files: ['**/src/**/*.test.{ts,tsx}', '**/src/**/*.stories.{ts,tsx}'],
         rules: {
             'i18next/no-literal-string': 'off',
         },
