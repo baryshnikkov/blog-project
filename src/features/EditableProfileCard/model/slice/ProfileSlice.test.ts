@@ -2,8 +2,8 @@ import { DeepPartial } from '@reduxjs/toolkit';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
-import { ProfileSchema, ValidateProfileErrors } from '../types/profile';
 import { profileReducer, profileActions } from './ProfileSlice';
+import { ProfileSchema, ValidateProfileErrors } from '../types/editableProfileCardSchema';
 
 const data = {
     first: 'Tom',

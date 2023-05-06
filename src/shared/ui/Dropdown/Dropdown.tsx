@@ -47,7 +47,7 @@ export const Dropdown = memo((props: DropdownProps) => {
                 {trigger}
             </Menu.Button>
             <Menu.Items className={classNames(cls.menu, {}, additionalMenuClasses)}>
-                {items.map((item) => {
+                {items.map((item, index) => {
                     const content = ({ active }: {active: boolean}) => (
                         <button
                             className={classNames(cls.item, { [cls.active]: active }, [])}
@@ -64,6 +64,7 @@ export const Dropdown = memo((props: DropdownProps) => {
                                 as={AppLink}
                                 to={item.href}
                                 disabled={item.disabled}
+                                key={index}
                             >
                                 {content}
                             </Menu.Item>
@@ -74,6 +75,7 @@ export const Dropdown = memo((props: DropdownProps) => {
                         <Menu.Item
                             as={Fragment}
                             disabled={item.disabled}
+                            key={index}
                         >
                             {content}
                         </Menu.Item>

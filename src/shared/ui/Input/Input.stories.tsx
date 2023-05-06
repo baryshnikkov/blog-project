@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
 import { Input } from './Input';
 
 export default {
@@ -18,3 +19,10 @@ Primary.args = {
     value: 'value',
     placeholder: 'placeholder',
 };
+
+export const PrimaryDark = Template.bind({});
+PrimaryDark.args = {
+    value: 'value',
+    placeholder: 'placeholder',
+};
+PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];

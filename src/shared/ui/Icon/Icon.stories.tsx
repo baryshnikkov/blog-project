@@ -1,29 +1,28 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+
+import iconForTest from 'shared/assets/tests/iconForTest.svg';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Card } from './Card';
-import { Text } from '../Text/Text';
+import { Icon } from './Icon';
 
 export default {
-    title: 'shared/Card',
-    component: Card,
+    title: 'shared/Icon',
+    component: Icon,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof Card>;
+} as ComponentMeta<typeof Icon>;
 
-const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
+const Template: ComponentStory<typeof Icon> = (args) => <Icon {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-    // eslint-disable-next-line
-    children: <Text title="Title test" text="Text test" />,
+    Svg: iconForTest,
 };
 
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {
-    // eslint-disable-next-line
-    children: <Text title="Title test" text="Text test" />,
+    Svg: iconForTest,
 };
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
