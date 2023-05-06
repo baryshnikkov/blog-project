@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
 import { Code } from './Code';
 
 export default {
@@ -30,3 +31,22 @@ Primary.args = {
             + '\n'
             + 'const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;',
 };
+
+export const PrimaryDark = Template.bind({});
+PrimaryDark.args = {
+    text: 'import React from \'react\';\n'
+            + 'import { ComponentMeta, ComponentStory } from \'@storybook/react\';\n'
+            + '\n'
+            + 'import { Code } from \'./Code\';\n'
+            + '\n'
+            + 'export default {\n'
+            + '    title: \'shared/Code\',\n'
+            + '    component: Code,\n'
+            + '    argTypes: {\n'
+            + '        backgroundColor: { control: \'color\' },\n'
+            + '    },\n'
+            + '} as ComponentMeta<typeof Code>;\n'
+            + '\n'
+            + 'const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;',
+};
+PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)];
