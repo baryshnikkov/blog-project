@@ -29,6 +29,10 @@
 
     // z - индексы
     --modal-z-index: 10;
+    --hidden-modal-z-index: -1;
+    --listbox-z-index: 1;
+    --dropdown-z-index: 1;
+    --sidebar-collapsed-btn-z-index: 1;
 
     // цвета
     --overlay-color: rgba(0 0 0 / 60%);
