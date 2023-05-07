@@ -9,8 +9,13 @@ module.exports = async (layer, sliceName) => {
     try {
         await fs.writeFile(
             resolveRoot('src', layer, sliceName, 'index.ts'),
-            `export { ${componentName} } from './ui/${componentName}/${componentName}';
-export { ${firstCharUpperCase(schemaName)} } from './model/types/${schemaName}';`,
+            `import { ${componentName} } from './ui/${componentName}/${componentName}';
+import { ${firstCharUpperCase(schemaName)} } from './model/types/${schemaName}';
+
+export {
+    ${componentName},
+    ${firstCharUpperCase(schemaName)},
+};`,
         );
     } catch (e) {
         console.log('Не удалось создать PUBLIC API');
