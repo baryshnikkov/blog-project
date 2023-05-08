@@ -1,4 +1,5 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 import {
     WebpackPluginInstance,
     ProgressPlugin,
@@ -37,6 +38,10 @@ export function buildPlugins(options: BuildOptions): WebpackPluginInstance[] {
             patterns: [
                 { from: paths.locales, to: paths.buildLocales },
             ],
+        }),
+        new CircularDependencyPlugin({
+            exclude: /node_modules/,
+            failOnError: true,
         }),
     ];
 
