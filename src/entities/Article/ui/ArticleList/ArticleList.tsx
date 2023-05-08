@@ -6,8 +6,9 @@ import { List, ListRowProps, WindowScroller } from 'react-virtualized';
 import { PAGE_ID } from 'widgets/Page/Page';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import cls from './ArticleList.module.scss';
-import { Article, ArticleView } from '../../model/types/article';
+import { Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
+import { ArticleView } from '../../model/consts/articleConsts';
 
 interface ArticleListProps {
     className?: string;
@@ -85,6 +86,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     }
 
     return (
+        // @ts-ignore
         <WindowScroller
             scrollElement={document.getElementById(PAGE_ID) as Element}
         >
@@ -98,10 +100,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
             }) => (
                 <div
                     className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+                    // @ts-ignore
                     ref={registerChild}
                 >
                     {virtualized
                         ? (
+                            // @ts-ignore
                             <List
                                 width={width ? width - 80 : 700}
                                 height={height ?? 700}

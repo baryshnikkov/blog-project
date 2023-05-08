@@ -1,7 +1,10 @@
 import { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard';
-import { ProfileSchema } from './model/types/editableProfileCardSchema';
+import type { ProfileSchema } from './model/types/editableProfileCardSchema';
 
 export {
     EditableProfileCard,
+};
+
+export type {
     ProfileSchema,
 };
