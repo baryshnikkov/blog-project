@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -16,17 +15,7 @@ const initialReducers: ReducerList = {
 };
 
 const ArticleDetailsPage = memo(() => {
-    const { t } = useTranslation('articleDetails');
     const { id } = useParams<{id: string}>();
-
-    if (!id || __PROJECT__ === 'storybook') {
-        return (
-            <Page className={classNames('', {}, [])}>
-                {t('Статья не найдена')}
-            </Page>
-
-        );
-    }
 
     return (
         <DynamicModuleLoader
@@ -36,7 +25,7 @@ const ArticleDetailsPage = memo(() => {
             <Page className={classNames('ArticleDetailsPage', {}, [])}>
                 <VStack gap="16">
                     <ArticleDetailsPageHeader />
-                    <ArticleDetails id={id!} />
+                    <ArticleDetails id={id} />
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id} />
                 </VStack>
