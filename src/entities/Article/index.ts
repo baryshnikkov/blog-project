@@ -1,11 +1,10 @@
+import { ArticleSortField, ArticleTypes, ArticleView } from './model/consts/articleConsts';
 import { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 import { getArticleDetailsData } from './model/selectors/getArticleDetailsData/getArticleDetailsData';
-import {
+import type {
     Article,
     ArticleDetailsSchema,
-    ArticleSortField,
-    ArticleTypes,
-    ArticleView,
+
 } from './model/types/article';
 import { ArticleList } from './ui/ArticleList/ArticleList';
 import { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
@@ -14,14 +13,17 @@ import { ArticleViewSelector } from './ui/ArticleViewSelector/ArticleViewSelecto
 
 export {
     ArticleDetails,
-    ArticleDetailsSchema,
     getArticleDetailsData,
     ArticleView,
     ArticleList,
-    Article,
     ArticleViewSelector,
     ArticleSortField,
     ArticleSortSelector,
     ArticleTypes,
     ArticleTypeTabs,
+};
+
+export type {
+    ArticleDetailsSchema,
+    Article,
 };

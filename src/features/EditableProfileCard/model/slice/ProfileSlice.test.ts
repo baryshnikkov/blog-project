@@ -1,9 +1,10 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { ValidateProfileErrors } from '../consts/editableProfileCardConsts';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { profileReducer, profileActions } from './ProfileSlice';
-import { ProfileSchema, ValidateProfileErrors } from '../types/editableProfileCardSchema';
+import { ProfileSchema } from '../types/editableProfileCardSchema';
 
 const data = {
     first: 'Tom',

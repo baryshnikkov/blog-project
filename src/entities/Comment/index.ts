@@ -1,7 +1,11 @@
 import { CommentList } from './ui/CommentList/CommentList';
-import { Comment } from './model/types/comment';
+import type { Comment } from './model/types/comment';
 
 export {
-    Comment,
     CommentList,
+};
+
+export type {
+    Comment,
+
 };
