@@ -8,15 +8,17 @@
 }
 
 .links,
-.dropdown {
+.actions {
     margin-left: auto;
 }
 
 .appName {
     margin-left: 12px;
     width: var(--sidebar-width);
+    flex-shrink: 0;
 }
 
 .linkCreate {
-    margin-right: 12px;
+    margin: 12px;
+    width: 100%;
 }

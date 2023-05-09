@@ -9,7 +9,8 @@ export function buildLoaders(options: BuildOptions): RuleSetRule[] {
 
     const svgLoader = buildSvgLoader();
 
-    const babelLoader = buildBabelLoader(options);
+    const tsBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+    const tsxBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
     const fileLoader = {
         test: /\.(png|jpe?g|gif|woff|woff2)$/i,
@@ -21,17 +22,18 @@ export function buildLoaders(options: BuildOptions): RuleSetRule[] {
 
     const cssLoader = buildCssLoader(isDev);
 
-    const typescriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    };
+    // const typescriptLoader = {
+    //     test: /\.tsx?$/,
+    //     use: 'ts-loader',
+    //     exclude: /node_modules/,
+    // };
 
     return [
         fileLoader,
         svgLoader,
-        babelLoader,
-        typescriptLoader,
+        tsBabelLoader,
+        tsxBabelLoader,
+        // typescriptLoader,
         cssLoader,
     ];
 }
