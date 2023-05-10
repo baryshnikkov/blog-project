@@ -1,9 +1,10 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import React, {
     MutableRefObject,
-    ReactNode, useCallback, useEffect, useRef, useState,
+    ReactNode, useCallback, useEffect, useMemo, useRef, useState,
 } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
+import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
@@ -31,10 +32,10 @@ export const Modal = (props: ModalProps) => {
     const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
     const { theme } = useTheme();
 
-    const mods: Mods = {
+    const mods: Mods = useMemo(() => ({
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
-    };
+    }), [isClosing, isOpen]);
 
     const closeHandler = useCallback(() => {
         if (onClose) {
@@ -67,10 +68,6 @@ export const Modal = (props: ModalProps) => {
         };
     }, [isOpen, onKeyDown]);
 
-    const onContentClick = (e: React.MouseEvent) => {
-        e.stopPropagation();
-    };
-
     if (lazy && !isMounted) {
         return null;
     }
@@ -78,16 +75,11 @@ export const Modal = (props: ModalProps) => {
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className, theme])}>
+                <Overlay onClick={closeHandler} />
                 <div
-                    className={cls.overlay}
-                    onClick={closeHandler}
+                    className={cls.content}
                 >
-                    <div
-                        className={cls.content}
-                        onClick={onContentClick}
-                    >
-                        {children}
-                    </div>
+                    {children}
                 </div>
             </div>
         </Portal>
