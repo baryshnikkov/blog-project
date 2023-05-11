@@ -1,12 +1,12 @@
+import { memo, useCallback, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { memo, useCallback, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import {
     Text, TextAlign, TextSize, TextTheme,
 } from '@/shared/ui/Text/Text';
-import { useTranslation } from 'react-i18next';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
