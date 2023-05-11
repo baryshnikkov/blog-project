@@ -1,4 +1,4 @@
-import { Button } from 'shared/ui/Button/Button';
+import { Button } from '@/shared/ui/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { memo } from 'react';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
