@@ -10,10 +10,13 @@ module.exports = async (layer, sliceName) => {
         await fs.writeFile(
             resolveRoot('src', layer, sliceName, 'index.ts'),
             `import { ${componentName} } from './ui/${componentName}/${componentName}';
-import { ${firstCharUpperCase(schemaName)} } from './model/types/${schemaName}';
+import type { ${firstCharUpperCase(schemaName)} } from './model/types/${schemaName}';
 
 export {
     ${componentName},
+};
+
+export type {
     ${firstCharUpperCase(schemaName)},
 };`,
         );

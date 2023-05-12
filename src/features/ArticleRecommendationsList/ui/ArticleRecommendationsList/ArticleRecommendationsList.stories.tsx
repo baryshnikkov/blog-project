@@ -1,9 +1,9 @@
 import React from 'react';
 import withMock from 'storybook-addon-mock';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Article } from 'entities/Article';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { Article } from '@/entities/Article';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 
 export default {

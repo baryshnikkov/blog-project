@@ -606,21 +606,27 @@
       "id": "1",
       "username": "admin",
       "password": "admin",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://www.softpal.com/portals/97/images/our_happy_clients_profile_low_resolution_images/testimonials_profile44.png"
     },
     {
       "id": "2",
       "username": "user",
       "password": "user",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://oboi-plenka.ru/image/cache/catalog/divino/8/208079259-fotooboi-c1-371-divino-panda-3-m-h-2-38-m-1200x800.jpg"
     },
     {
       "id": "3",
       "username": "manager",
       "password": "manager",
-      "roles": ["MANAGER"],
+      "roles": [
+        "MANAGER"
+      ],
       "avatar": "https://www.clipartmax.com/png/full/293-2934780_businessman-icono-empleado-png.png"
     }
   ],
@@ -630,8 +636,8 @@
       "first": "Tom",
       "lastname": "Brown",
       "age": 33,
-      "currency": "RUB",
-      "country": "Russia",
+      "currency": "EUR",
+      "country": "Belarus",
       "city": "Moscow",
       "username": "admin",
       "avatar": "https://www.softpal.com/portals/97/images/our_happy_clients_profile_low_resolution_images/testimonials_profile44.png"
@@ -646,6 +652,80 @@
       "city": "Minsk",
       "username": "user",
       "avatar": "https://oboi-plenka.ru/image/cache/catalog/divino/8/208079259-fotooboi-c1-371-divino-panda-3-m-h-2-38-m-1200x800.jpg"
+    }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 3,
+      "feedback": "",
+      "id": "I7ofk1u"
+    },
+    {
+      "userId": "1",
+      "articleId": "9",
+      "rate": 5,
+      "feedback": "asdasdasdasd",
+      "id": "Y7MhPzo"
+    },
+    {
+      "userId": "1",
+      "articleId": "10",
+      "rate": 1,
+      "feedback": "отстой",
+      "id": "II0a75O"
+    },
+    {
+      "userId": "1",
+      "articleId": "7",
+      "rate": 3,
+      "feedback": "",
+      "id": "bcPnbbZ"
+    },
+    {
+      "userId": "1",
+      "articleId": "4",
+      "rate": 2,
+      "feedback": "test",
+      "id": "Bo6XipT"
+    },
+    {
+      "userId": "2",
+      "articleId": "4",
+      "rate": 4,
+      "feedback": "test user",
+      "id": "Ipivvfd"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "2"
     }
   ]
 }
