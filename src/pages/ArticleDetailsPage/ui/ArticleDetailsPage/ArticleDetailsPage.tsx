@@ -9,6 +9,7 @@ import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsLis
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ArticleRating } from '@/features/ArticleRating';
 
 const initialReducers: ReducerList = {
     articleDetailsPage: articleDetailsPageReducer,
@@ -16,6 +17,10 @@ const initialReducers: ReducerList = {
 
 const ArticleDetailsPage = memo(() => {
     const { id } = useParams<{id: string}>();
+
+    if (!id) {
+        return null;
+    }
 
     return (
         <DynamicModuleLoader
@@ -26,6 +31,7 @@ const ArticleDetailsPage = memo(() => {
                 <VStack gap="16">
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
+                    <ArticleRating articleId={id} />
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id} />
                 </VStack>
