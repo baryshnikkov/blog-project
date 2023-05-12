@@ -606,21 +606,27 @@
       "id": "1",
       "username": "admin",
       "password": "admin",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://www.softpal.com/portals/97/images/our_happy_clients_profile_low_resolution_images/testimonials_profile44.png"
     },
     {
       "id": "2",
       "username": "user",
       "password": "user",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://oboi-plenka.ru/image/cache/catalog/divino/8/208079259-fotooboi-c1-371-divino-panda-3-m-h-2-38-m-1200x800.jpg"
     },
     {
       "id": "3",
       "username": "manager",
       "password": "manager",
-      "roles": ["MANAGER"],
+      "roles": [
+        "MANAGER"
+      ],
       "avatar": "https://www.clipartmax.com/png/full/293-2934780_businessman-icono-empleado-png.png"
     }
   ],
@@ -630,8 +636,8 @@
       "first": "Tom",
       "lastname": "Brown",
       "age": 33,
-      "currency": "RUB",
-      "country": "Russia",
+      "currency": "EUR",
+      "country": "Belarus",
       "city": "Moscow",
       "username": "admin",
       "avatar": "https://www.softpal.com/portals/97/images/our_happy_clients_profile_low_resolution_images/testimonials_profile44.png"
