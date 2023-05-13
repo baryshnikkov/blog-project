@@ -8,7 +8,6 @@ import { Dropdown } from '@/shared/ui/Popups';
 import {
     getAuthUserData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User';
-import cls from './AvatarDropdown.module.scss';
 
 interface AvatarDropdownProps {
     className?: string;
