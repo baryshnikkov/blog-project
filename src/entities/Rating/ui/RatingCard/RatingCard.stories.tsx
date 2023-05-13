@@ -13,5 +13,22 @@ export default {
 
 const Template: ComponentStory<typeof RatingCard> = (args) => <RatingCard {...args} />;
 
-export const Normal = Template.bind({});
-Normal.args = {};
+export const Primary = Template.bind({});
+Primary.args = {
+    title: 'title',
+    feedbackTitle: 'feedback title',
+    hasFeedback: true,
+    onCancel: () => null,
+    onAccept: () => null,
+    rate: 0,
+};
+
+export const PrimaryWithRate = Template.bind({});
+PrimaryWithRate.args = {
+    title: 'title',
+    feedbackTitle: 'feedback title',
+    hasFeedback: true,
+    onCancel: () => null,
+    onAccept: () => null,
+    rate: 3,
+};
