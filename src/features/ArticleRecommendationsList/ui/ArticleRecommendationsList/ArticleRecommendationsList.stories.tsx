@@ -4,7 +4,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Article } from '@/entities/Article';
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
-import { RoutePath } from '@/shared/const/router';
 
 export default {
     title: 'features/ArticleRecommendationsList',

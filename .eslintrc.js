@@ -19,6 +19,7 @@ module.exports = {
         'i18next',
         'react-hooks',
         'mb',
+        'unused-imports',
     ],
     rules: {
         indent: ['error', 4],
@@ -65,6 +66,7 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
+        'unused-imports/no-unused-imports': 'error',
         'mb/path-checker': ['error', { alias: '@' }],
         'mb/public-api-imports': [
             'error',
