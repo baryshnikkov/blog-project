@@ -19,6 +19,7 @@ module.exports = {
         'i18next',
         'react-hooks',
         'mb',
+        'unused-imports',
     ],
     rules: {
         indent: ['error', 4],
@@ -65,7 +66,22 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
-        'mb/path-checker': 'error',
+        'unused-imports/no-unused-imports': 'error',
+        'mb/path-checker': ['error', { alias: '@' }],
+        'mb/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: ['**/*.test.*', '**/*.story.', '**/StoreDecorator.tsx'],
+            },
+        ],
+        'mb/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,

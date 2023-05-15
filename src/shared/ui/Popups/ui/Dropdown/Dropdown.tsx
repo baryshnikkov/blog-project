@@ -57,14 +57,13 @@ export const Dropdown = memo((props: DropdownProps) => {
 
                     if (item.href) {
                         return (
-                            <Menu.Item
-                                as={AppLink}
-                                to={item.href}
-                                disabled={item.disabled}
-                                key={index}
-                            >
-                                {content}
-                            </Menu.Item>
+                            <AppLink to={item.href} key={index}>
+                                <Menu.Item
+                                    disabled={item.disabled}
+                                >
+                                    {content}
+                                </Menu.Item>
+                            </AppLink>
                         );
                     }
 

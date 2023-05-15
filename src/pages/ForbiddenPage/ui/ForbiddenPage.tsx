@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Page } from '@/widgets/Page/Page';
-import { Text, TextAlign, TextTheme } from '@/shared/ui/Text/Text';
+import { Page } from '@/widgets/Page';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
 
 const ForbiddenPage = memo(() => {
     const { t } = useTranslation('forbidden');
