@@ -24,7 +24,7 @@ const article = {
     createdAt: '26.02.2022',
     user: {
         id: '1',
-        username: 'Ulbi tv',
+        username: 'username',
         avatar: 'https://oboi-plenka.ru/image/cache/catalog/divino/8/'
                 + '208079259-fotooboi-c1-371-divino-panda-3-m-h-2-38-m-1200x800.jpg',
     },
