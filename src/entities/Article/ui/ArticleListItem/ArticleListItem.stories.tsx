@@ -24,8 +24,8 @@ const article = {
     createdAt: '26.02.2022',
     user: {
         id: '1',
-        username: 'Ulbi tv',
-        avatar: 'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
+        username: 'admin',
+        avatar: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     },
     type: [
         'IT',
