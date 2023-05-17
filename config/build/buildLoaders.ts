@@ -14,6 +14,7 @@ export function buildLoaders(options: BuildOptions): RuleSetRule[] {
 
     const fileLoader = {
         test: /\.(png|jpe?g|gif|woff|woff2)$/i,
+        exclude: /node_modules/,
         loader: 'file-loader',
         options: {
             name: '[path][name].[ext]',
