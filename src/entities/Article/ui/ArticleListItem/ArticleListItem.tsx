@@ -12,7 +12,9 @@ import { ArticleBlockTypes, ArticleView } from '../../model/consts/articleConsts
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
 import { Article, ArticleTextBlock } from '../../model/types/article';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleDetails } from '@/shared/const/router';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 interface ArticleListItemProps {
     className?: string;
@@ -63,14 +65,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         </>
     );
 
-    const img = (
-        <img
-            className={cls.img}
-            src={article.img}
-            alt={article.title}
-        />
-    );
-
     if (view === ArticleView.LIST) {
         const textBlock = article.blocks.find((block) => block.type === ArticleBlockTypes.TEXT) as ArticleTextBlock;
 
@@ -92,7 +86,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
                     {title}
                     {types}
-                    {img}
+                    <AppImage
+                        fallback={<Skeleton width="100%" height={250} />}
+                        className={cls.img}
+                        src={article.img}
+                        alt={article.title}
+                    />
 
                     {textBlock && (
                         <ArticleTextBlockComponent
@@ -103,7 +102,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
                     <div className={cls.footer}>
                         <AppLink
-                            to={RoutePath.article_details + article.id}
+                            to={getRouteArticleDetails(article.id)}
                             target={target}
                         >
                             <Button>
@@ -120,12 +119,17 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     return (
         <AppLink
             className={classNames('', {}, [className, cls[view]])}
-            to={RoutePath.article_details + article.id}
+            to={getRouteArticleDetails(article.id)}
             target={target}
         >
             <Card>
                 <div className={cls.imageWrapper}>
-                    {img}
+                    <AppImage
+                        fallback={<Skeleton width={200} height={200} />}
+                        className={cls.img}
+                        src={article.img}
+                        alt={article.title}
+                    />
                     {date}
                 </div>
 

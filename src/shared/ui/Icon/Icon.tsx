@@ -5,7 +5,7 @@ import cls from './Icon.module.scss';
 interface IconProps extends SVGProps<SVGSVGElement>{
     className?: string;
     Svg: VFC<SVGProps<SVGSVGElement>>;
-    isInverted?: boolean
+    isInverted?: boolean;
 }
 
 export const Icon = memo((props: IconProps) => {

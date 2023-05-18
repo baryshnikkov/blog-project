@@ -7,7 +7,7 @@ const ForbiddenPage = memo(() => {
     const { t } = useTranslation('forbidden');
 
     return (
-        <Page>
+        <Page data-testid="ForbiddenPage">
             <Text
                 theme={TextTheme.ERROR}
                 title={t('У вас нет доступа к этой странице')}
