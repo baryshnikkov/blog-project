@@ -7,7 +7,10 @@ const NotFoundPage = memo(() => {
     const { t } = useTranslation('notFoundPage');
 
     return (
-        <Page className={cls.NotFoundPage}>
+        <Page
+            className={cls.NotFoundPage}
+            data-testid="NotFoundPage"
+        >
             {t('Страница не найдена')}
         </Page>
     );

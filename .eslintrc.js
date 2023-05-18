@@ -44,6 +44,7 @@ module.exports = {
         'jsx-a11y/click-events-have-key-events': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
+        'react/destructuring-assignment': 'warn',
         'i18next/no-literal-string': ['error', {
             markupOnly: true,
             ignoreAttribute: [
