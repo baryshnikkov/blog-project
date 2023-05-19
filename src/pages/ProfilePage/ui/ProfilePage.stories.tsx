@@ -5,7 +5,6 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
-import AvatarImg from '@/shared/assets/tests/storybook.png';
 import ProfilePage from './ProfilePage';
 import { Theme } from '@/shared/const/theme';
 
@@ -31,7 +30,7 @@ Light.decorators = [StoreDecorator({
             country: Country.Russia,
             city: 'Moscow',
             username: 'admin',
-            avatar: AvatarImg,
+            avatar: 'https://i.pinimg.com/736x/21/20/b0/2120b058cb9946e36306778243eadae5.jpg',
         },
     },
 })];
@@ -48,7 +47,7 @@ Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
             country: Country.Russia,
             city: 'Moscow',
             username: 'admin',
-            avatar: AvatarImg,
+            avatar: 'https://i.pinimg.com/736x/21/20/b0/2120b058cb9946e36306778243eadae5.jpg',
         },
     },
 })];

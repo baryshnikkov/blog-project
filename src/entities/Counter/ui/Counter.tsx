@@ -52,7 +52,7 @@ export const Counter = memo(() => {
             </Button>
             <Button
                 onClick={handleAddFive}
-                data-testid="decrement-btn"
+                data-testid="decrement-on-five-btn"
             >
                 +5
             </Button>

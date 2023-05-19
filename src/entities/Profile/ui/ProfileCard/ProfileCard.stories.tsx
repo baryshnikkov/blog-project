@@ -2,7 +2,6 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
-import AvatarImg from '@/shared/assets/tests/storybook.png';
 import { ProfileCard } from './ProfileCard';
 
 export default {
@@ -25,7 +24,7 @@ Primary.args = {
         country: Country.Russia,
         city: 'Moscow',
         username: 'admin',
-        avatar: AvatarImg,
+        avatar: 'https://i.pinimg.com/736x/21/20/b0/2120b058cb9946e36306778243eadae5.jpg',
     },
 };
 
