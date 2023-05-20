@@ -1,4 +1,6 @@
+// @ts-ignore
 import path from 'path';
+// @ts-ignore
 import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import { BuildPaths } from '../build/types/config';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
