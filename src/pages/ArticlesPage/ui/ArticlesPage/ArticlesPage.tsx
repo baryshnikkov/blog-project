@@ -33,6 +33,7 @@ const ArticlesPage = memo(() => {
             removeAfterUnmount={false}
         >
             <Page
+                data-testid="ArticlesPage"
                 className={cls.ArticlesPage}
                 onScrollEnd={onLoadNextPart}
             >
