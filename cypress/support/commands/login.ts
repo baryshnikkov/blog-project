@@ -1,5 +1,5 @@
-import { USER_LOCALSTORAGE_KEY } from '../../../src/shared/const/localstorage';
-import { User } from '../../../src/entities/User';
+import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
+import { User } from '@/entities/User';
 
 export const login = (username: string = 'usertest', password: string = 'usertest') => cy.request({
     method: 'POST',
