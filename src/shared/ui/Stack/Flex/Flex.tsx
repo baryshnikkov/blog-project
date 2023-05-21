@@ -58,6 +58,7 @@ export const Flex = (props: FlexProps) => {
         direction = 'row',
         gap = 4,
         max = true,
+        ...otherProps
     } = props;
 
     const additional = useMemo(() => [
@@ -73,7 +74,7 @@ export const Flex = (props: FlexProps) => {
     }), [max]);
 
     return (
-        <div className={classNames(cls.Flex, mods, additional)}>
+        <div className={classNames(cls.Flex, mods, additional)} {...otherProps}>
             {children}
         </div>
     );

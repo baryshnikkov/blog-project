@@ -46,17 +46,20 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
             removeAfterUnmount
         >
             <HStack
+                data-testid="AddCommentForm"
                 className={classNames(cls.AddCommentForm, {}, [className])}
                 justify="between"
                 align="center"
             >
                 <Input
+                    data-testid="AddCommentForm.Input"
                     className={cls.input}
                     placeholder={t('Введите текст комментария')}
                     value={text}
                     onChange={onCommentTextChange}
                 />
                 <Button
+                    data-testid="AddCommentForm.Button"
                     onClick={onSendHandler}
                 >
                     {t('Отправить')}

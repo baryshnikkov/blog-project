@@ -117,7 +117,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                         size={200}
                     />
                 </HStack>
-                <VStack>
+                <VStack data-testid="ArticleDetails.Info">
                     <Text
                         title={article?.title}
                         text={article?.subtitle}
