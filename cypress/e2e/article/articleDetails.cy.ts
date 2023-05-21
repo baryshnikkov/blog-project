@@ -30,4 +30,11 @@ describe('Пользователь заходит на страницу стат
         cy.setRate(3, 'feedback');
         cy.get('[data-selected=true]').should('have.length', 3);
     });
+    it('Пользователь ставит оценку статьи (пример на фикстурах)', () => {
+        cy.intercept('GET', '**/articles/*', { fixture: 'articleDetails.json' });
+        cy.getByTestId('ArticleDetails.Info').should('exist');
+        cy.getByTestId('RatingCard').scrollIntoView();
+        cy.setRate(3, 'feedback');
+        cy.get('[data-selected=true]').should('have.length', 3);
+    });
 });

@@ -537,71 +537,6 @@
           ]
         }
       ]
-    },
-    {
-      "title": "Cypress test",
-      "subtitle": "Биология",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1000,
-      "createdAt": "01.01.2000",
-      "userId": "4",
-      "type": [
-        "SCIENCE"
-      ],
-      "blocks": [],
-      "id": "6B6oYvc"
-    },
-    {
-      "title": "Cypress test",
-      "subtitle": "Биология",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1000,
-      "createdAt": "01.01.2000",
-      "userId": "4",
-      "type": [
-        "SCIENCE"
-      ],
-      "blocks": [],
-      "id": "ratar_2"
-    },
-    {
-      "title": "Cypress test",
-      "subtitle": "Биология",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1000,
-      "createdAt": "01.01.2000",
-      "userId": "4",
-      "type": [
-        "SCIENCE"
-      ],
-      "blocks": [],
-      "id": "xC0IL0E"
-    },
-    {
-      "title": "Cypress test",
-      "subtitle": "Биология",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1000,
-      "createdAt": "01.01.2000",
-      "userId": "4",
-      "type": [
-        "SCIENCE"
-      ],
-      "blocks": [],
-      "id": "tA8e7CO"
-    },
-    {
-      "title": "Cypress test",
-      "subtitle": "Биология",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1000,
-      "createdAt": "01.01.2000",
-      "userId": "4",
-      "type": [
-        "SCIENCE"
-      ],
-      "blocks": [],
-      "id": "3J-R8V0"
     }
   ],
   "comments": [
@@ -664,12 +599,6 @@
       "userId": "2",
       "text": "test 1",
       "id": "CGkaxPh"
-    },
-    {
-      "articleId": "ratar_2",
-      "userId": "4",
-      "text": "Cypress test",
-      "id": "Uuo6Uxn"
     }
   ],
   "users": [
