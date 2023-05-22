@@ -12,24 +12,24 @@ interface CurrencySelectProps {
 }
 
 export const CurrencySelect = memo((props: CurrencySelectProps) => {
-    const {
-        className,
-        value,
-        onChange,
-        readonly,
-    } = props;
+    const { className, value, onChange, readonly } = props;
     const { t } = useTranslation('currencySelect');
 
-    const CurrencyList = useMemo(() => Object.entries(Currency).map((el) => (
-        {
-            value: el[0],
-            content: el[1],
-        }
-    )), []);
+    const CurrencyList = useMemo(
+        () =>
+            Object.entries(Currency).map((el) => ({
+                value: el[0],
+                content: el[1],
+            })),
+        [],
+    );
 
-    const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as Currency);
-    }, [onChange]);
+    const onChangeHandler = useCallback(
+        (value: string) => {
+            onChange?.(value as Currency);
+        },
+        [onChange],
+    );
 
     return (
         <ListBox

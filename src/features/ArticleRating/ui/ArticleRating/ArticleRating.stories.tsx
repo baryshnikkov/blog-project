@@ -11,26 +11,28 @@ export default {
     },
 } as ComponentMeta<typeof ArticleRating>;
 
-const Template: ComponentStory<typeof ArticleRating> = (args) => <ArticleRating {...args} />;
+const Template: ComponentStory<typeof ArticleRating> = (args) => (
+    <ArticleRating {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
     articleId: '1',
 };
-Primary.decorators = [StoreDecorator({
-    user: {
-        authData: { id: '1' },
-    },
-})];
+Primary.decorators = [
+    StoreDecorator({
+        user: {
+            authData: { id: '1' },
+        },
+    }),
+];
 Primary.parameters = {
     mockData: [
         {
             url: `${__API__}/article-ratings?userId=1&articleId=1`,
             method: 'GET',
             status: 200,
-            response: [
-                { rate: 0 },
-            ],
+            response: [{ rate: 0 }],
         },
     ],
 };
@@ -39,20 +41,20 @@ export const WithRate = Template.bind({});
 WithRate.args = {
     articleId: '1',
 };
-WithRate.decorators = [StoreDecorator({
-    user: {
-        authData: { id: '1' },
-    },
-})];
+WithRate.decorators = [
+    StoreDecorator({
+        user: {
+            authData: { id: '1' },
+        },
+    }),
+];
 WithRate.parameters = {
     mockData: [
         {
             url: `${__API__}/article-ratings?userId=1&articleId=1`,
             method: 'GET',
             status: 200,
-            response: [
-                { rate: 4 },
-            ],
+            response: [{ rate: 4 }],
         },
     ],
 };

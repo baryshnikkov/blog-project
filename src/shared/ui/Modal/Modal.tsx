@@ -7,36 +7,29 @@ import cls from './Modal.module.scss';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 interface ModalProps {
-  className?: string;
-  children?: ReactNode;
-  isOpen?: boolean;
-  onClose?: () => void;
-  lazy?: boolean;
+    className?: string;
+    children?: ReactNode;
+    isOpen?: boolean;
+    onClose?: () => void;
+    lazy?: boolean;
 }
 
 export const Modal = (props: ModalProps) => {
-    const {
-        className,
-        children,
-        isOpen,
-        onClose,
-        lazy,
-    } = props;
+    const { className, children, isOpen, onClose, lazy } = props;
     const { theme } = useTheme();
-    const {
-        isClosing,
-        isMounted,
-        close,
-    } = useModal({
+    const { isClosing, isMounted, close } = useModal({
         animationDelay: 300,
         onClose,
         isOpen,
     });
 
-    const mods: Mods = useMemo(() => ({
-        [cls.opened]: isOpen,
-        [cls.isClosing]: isClosing,
-    }), [isClosing, isOpen]);
+    const mods: Mods = useMemo(
+        () => ({
+            [cls.opened]: isOpen,
+            [cls.isClosing]: isClosing,
+        }),
+        [isClosing, isOpen],
+    );
 
     if (lazy && !isMounted) {
         return null;
@@ -46,11 +39,7 @@ export const Modal = (props: ModalProps) => {
         <Portal>
             <div className={classNames(cls.Modal, mods, [className, theme])}>
                 <Overlay onClick={close} />
-                <div
-                    className={cls.content}
-                >
-                    {children}
-                </div>
+                <div className={cls.content}>{children}</div>
             </div>
         </Portal>
     );

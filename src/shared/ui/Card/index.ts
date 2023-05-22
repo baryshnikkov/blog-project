@@ -1,6 +1,3 @@
 import { Card, CardTheme } from './Card';
 
-export {
-    Card,
-    CardTheme,
-};
+export { Card, CardTheme };

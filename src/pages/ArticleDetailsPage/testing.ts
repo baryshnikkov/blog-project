@@ -1,5 +1,3 @@
 import { articleDetailsPageReducer } from './model/slices';
 
-export {
-    articleDetailsPageReducer,
-};
+export { articleDetailsPageReducer };

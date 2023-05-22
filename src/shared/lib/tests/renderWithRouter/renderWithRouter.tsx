@@ -6,15 +6,13 @@ export interface renderWithRouterOptions {
     route?: string;
 }
 
-export function renderWithRouter(component: ReactNode, options: renderWithRouterOptions = {}) {
-    const {
-        route = '/',
-    } = options;
+export function renderWithRouter(
+    component: ReactNode,
+    options: renderWithRouterOptions = {},
+) {
+    const { route = '/' } = options;
 
     return render(
-        <MemoryRouter initialEntries={[route]}>
-            {component}
-        </MemoryRouter>,
-
+        <MemoryRouter initialEntries={[route]}>{component}</MemoryRouter>,
     );
 }

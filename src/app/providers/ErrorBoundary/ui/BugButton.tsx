@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button';
 
 interface BugButtonProps {
-  className?: string
+    className?: string;
 }
 
 export const BugButton = ({ className }: BugButtonProps) => {

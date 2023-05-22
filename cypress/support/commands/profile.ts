@@ -19,8 +19,9 @@ export const resetProfile = (profileId: string) => {
             country: 'Belarus',
             city: 'Minsk',
             username: 'usertest',
-            avatar: 'https://oboi-plenka.ru/image/cache/catalog/divino/8/208079259-fotooboi-c1-371-divino-panda-'
-                + '3-m-h-2-38-m-1200x800.jpg',
+            avatar:
+                'https://oboi-plenka.ru/image/cache/catalog/divino/8/208079259-fotooboi-c1-371-divino-panda-' +
+                '3-m-h-2-38-m-1200x800.jpg',
         },
     });
 };

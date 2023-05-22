@@ -4,7 +4,14 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
+    extends: [
+        'plugin:react/recommended',
+        'airbnb',
+        'plugin:i18next/recommended',
+        'plugin:storybook/recommended',
+        'plugin:prettier/recommended',
+        'eslint-config-prettier',
+    ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -22,12 +29,10 @@ module.exports = {
         'unused-imports',
     ],
     rules: {
-        indent: ['error', 4],
-        'react/jsx-indent': ['error', 4],
-        'react/jsx-indent-props': ['error', 4],
-        'react/jsx-filename-extension': ['error', {
-            extensions: ['.tsx'],
-        }],
+        'react/jsx-filename-extension': [
+            1,
+            { extensions: ['.js', '.jsx', '.tsx'] },
+        ],
         'no-unused-vars': 'warn',
         'react/jsx-props-no-spreading': 'warn',
         'no-console': 'warn',
@@ -45,25 +50,24 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'react/destructuring-assignment': 'warn',
-        'i18next/no-literal-string': ['error', {
-            markupOnly: true,
-            ignoreAttribute: [
-                'data-testid',
-                'to',
-                'target',
-                'justify',
-                'align',
-                'direction',
-                'gap',
-                'role',
-                'as',
-                'border',
-            ],
-        }],
-        'max-len': ['error', {
-            code: 135,
-            ignoreComments: true,
-        }],
+        'i18next/no-literal-string': [
+            'error',
+            {
+                markupOnly: true,
+                ignoreAttribute: [
+                    'data-testid',
+                    'to',
+                    'target',
+                    'justify',
+                    'align',
+                    'direction',
+                    'gap',
+                    'role',
+                    'as',
+                    'border',
+                ],
+            },
+        ],
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
@@ -73,7 +77,11 @@ module.exports = {
             'error',
             {
                 alias: '@',
-                testFilesPatterns: ['**/*.test.*', '**/*.story.', '**/StoreDecorator.tsx'],
+                testFilesPatterns: [
+                    '**/*.test.*',
+                    '**/*.story.',
+                    '**/StoreDecorator.tsx',
+                ],
             },
         ],
         'mb/layer-imports': [
@@ -89,10 +97,15 @@ module.exports = {
         __API__: true,
         __PROJECT__: true,
     },
-    overrides: [{
-        files: ['**/src/**/*.test.{ts,tsx}', '**/src/**/*.stories.{ts,tsx}'],
-        rules: {
-            'i18next/no-literal-string': 'off',
+    overrides: [
+        {
+            files: [
+                '**/src/**/*.test.{ts,tsx}',
+                '**/src/**/*.stories.{ts,tsx}',
+            ],
+            rules: {
+                'i18next/no-literal-string': 'off',
+            },
         },
-    }],
+    ],
 };

@@ -14,10 +14,10 @@ export enum ArticleTypes {
     ALL = 'ALL',
     IT = 'IT',
     SCIENCE = 'SCIENCE',
-    ECONOMICS = 'ECONOMICS'
+    ECONOMICS = 'ECONOMICS',
 }
 
 export enum ArticleView {
     LIST = 'LIST',
-    GRID = 'GRID'
+    GRID = 'GRID',
 }

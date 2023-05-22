@@ -27,15 +27,16 @@ describe('articleDetailsSlice', () => {
             error: undefined,
         };
 
-        expect(articleDetailsReducer(
+        expect(
+            articleDetailsReducer(
                 state as ArticleDetailsSchema,
                 fetchArticleById.pending,
-        ))
-            .toEqual({
-                isLoading: true,
-                data: undefined,
-                error: undefined,
-            });
+            ),
+        ).toEqual({
+            isLoading: true,
+            data: undefined,
+            error: undefined,
+        });
     });
 
     test('fetch article by id fulfilled', () => {
@@ -45,14 +46,15 @@ describe('articleDetailsSlice', () => {
             error: undefined,
         };
 
-        expect(articleDetailsReducer(
+        expect(
+            articleDetailsReducer(
                 state as ArticleDetailsSchema,
                 fetchArticleById.fulfilled(data, '', '1'),
-        ))
-            .toEqual({
-                isLoading: false,
-                data,
-                error: undefined,
-            });
+            ),
+        ).toEqual({
+            isLoading: false,
+            data,
+            error: undefined,
+        });
     });
 });

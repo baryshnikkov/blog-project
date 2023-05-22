@@ -6,24 +6,27 @@ export interface ArticleBlockBase {
     type: ArticleBlockTypes;
 }
 
-export interface ArticleCodeBlock extends ArticleBlockBase{
+export interface ArticleCodeBlock extends ArticleBlockBase {
     type: ArticleBlockTypes.CODE;
     code: string;
 }
 
-export interface ArticleTextBlock extends ArticleBlockBase{
+export interface ArticleTextBlock extends ArticleBlockBase {
     type: ArticleBlockTypes.TEXT;
     title?: string;
     paragraphs: string[];
 }
 
-export interface ArticleImageBlock extends ArticleBlockBase{
+export interface ArticleImageBlock extends ArticleBlockBase {
     type: ArticleBlockTypes.IMAGE;
     src: string;
     title: string;
 }
 
-export type ArticleBlocks = ArticleCodeBlock | ArticleTextBlock | ArticleImageBlock;
+export type ArticleBlocks =
+    | ArticleCodeBlock
+    | ArticleTextBlock
+    | ArticleImageBlock;
 
 export interface Article {
     id: string;

@@ -16,11 +16,12 @@ interface ArticleListProps {
     target?: HTMLAttributeAnchorTarget;
 }
 
-const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.GRID ? 9 : 3)
-    .fill(0)
-    .map((item, index) => (
-        <ArticleListItemSkeleton view={view} key={index} />
-    ));
+const getSkeletons = (view: ArticleView) =>
+    new Array(view === ArticleView.GRID ? 9 : 3)
+        .fill(0)
+        .map((item, index) => (
+            <ArticleListItemSkeleton view={view} key={index} />
+        ));
 
 export const ArticleList = memo((props: ArticleListProps) => {
     const {
@@ -34,11 +35,13 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     if (!isLoading && !articles.length) {
         return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                <Text
-                    title={t('Статьи не найдены')}
-                    size={TextSize.L}
-                />
+            <div
+                className={classNames(cls.ArticleList, {}, [
+                    className,
+                    cls[view],
+                ])}
+            >
+                <Text title={t('Статьи не найдены')} size={TextSize.L} />
             </div>
         );
     }

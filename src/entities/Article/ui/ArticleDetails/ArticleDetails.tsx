@@ -2,11 +2,12 @@ import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
-    Text, TextAlign, TextSize, TextTheme,
-} from '@/shared/ui/Text';
+    DynamicModuleLoader,
+    ReducerList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Text, TextAlign, TextSize, TextTheme } from '@/shared/ui/Text';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { Avatar } from '@/shared/ui/Avatar';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
@@ -20,9 +21,7 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 import { ArticleBlocks } from '../../model/types/article';
 import { getArticleDetailsData } from '../../model/selectors/getArticleDetailsData/getArticleDetailsData';
 import { getArticleDetailsError } from '../../model/selectors/getArticleDetailsError/getArticleDetailsError';
-import {
-    getArticleDetailsIsLoading,
-} from '../../model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading';
+import { getArticleDetailsIsLoading } from '../../model/selectors/getArticleDetailsIsLoading/getArticleDetailsIsLoading';
 import cls from './ArticleDetails.module.scss';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
@@ -37,10 +36,7 @@ const initialReducers: ReducerList = {
 };
 
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
-    const {
-        className,
-        id,
-    } = props;
+    const { className, id } = props;
     const { t } = useTranslation('articleDetails');
     const dispatch = useAppDispatch();
     const article = useSelector(getArticleDetailsData);
@@ -49,29 +45,20 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     const renderBlock = useCallback((block: ArticleBlocks) => {
         switch (block.type) {
-        case ArticleBlockTypes.CODE:
-            return (
-                <ArticleCodeBlockComponent
-                    block={block}
-                    key={block.id}
-                />
-            );
-        case ArticleBlockTypes.IMAGE:
-            return (
-                <ArticleImageBlockComponent
-                    block={block}
-                    key={block.id}
-                />
-            );
-        case ArticleBlockTypes.TEXT:
-            return (
-                <ArticleTextBlockComponent
-                    block={block}
-                    key={block.id}
-                />
-            );
-        default:
-            return null;
+            case ArticleBlockTypes.CODE:
+                return (
+                    <ArticleCodeBlockComponent block={block} key={block.id} />
+                );
+            case ArticleBlockTypes.IMAGE:
+                return (
+                    <ArticleImageBlockComponent block={block} key={block.id} />
+                );
+            case ArticleBlockTypes.TEXT:
+                return (
+                    <ArticleTextBlockComponent block={block} key={block.id} />
+                );
+            default:
+                return null;
         }
     }, []);
 
@@ -86,7 +73,12 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     if (isLoading) {
         content = (
             <>
-                <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
+                <Skeleton
+                    className={cls.avatar}
+                    width={200}
+                    height={200}
+                    border="50%"
+                />
                 <Skeleton width={300} height={32} />
                 <Skeleton width={600} height={24} />
                 <Skeleton width="100%" height={200} />
@@ -108,14 +100,8 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     if (!isLoading && !error) {
         content = (
             <>
-                <HStack
-                    justify="center"
-                    max
-                >
-                    <Avatar
-                        src={article?.img}
-                        size={200}
-                    />
+                <HStack justify="center" max>
+                    <Avatar src={article?.img} size={200} />
                 </HStack>
                 <VStack data-testid="ArticleDetails.Info">
                     <Text
@@ -138,10 +124,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     }
 
     return (
-        <DynamicModuleLoader
-            reducers={initialReducers}
-            removeAfterUnmount
-        >
+        <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
             <VStack
                 className={classNames(cls.ArticleDetails, {}, [className])}
                 gap="16"

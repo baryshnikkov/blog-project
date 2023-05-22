@@ -1,9 +1,4 @@
-import {
-    DetailedHTMLProps,
-    HTMLAttributes,
-    ReactNode,
-    useMemo,
-} from 'react';
+import { DetailedHTMLProps, HTMLAttributes, ReactNode, useMemo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Flex.module.scss';
 
@@ -37,7 +32,10 @@ const gapClasses: Record<FlexGap, string> = {
     32: cls.gap32,
 };
 
-type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type DivProps = DetailedHTMLProps<
+    HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+>;
 
 export interface FlexProps extends DivProps {
     className?: string;
@@ -61,17 +59,23 @@ export const Flex = (props: FlexProps) => {
         ...otherProps
     } = props;
 
-    const additional = useMemo(() => [
-        className,
-        justifyClasses[justify],
-        alignClasses[align],
-        directionClasses[direction],
-        gapClasses[gap],
-    ], [align, className, direction, gap, justify]);
+    const additional = useMemo(
+        () => [
+            className,
+            justifyClasses[justify],
+            alignClasses[align],
+            directionClasses[direction],
+            gapClasses[gap],
+        ],
+        [align, className, direction, gap, justify],
+    );
 
-    const mods = useMemo(() => ({
-        [cls.max]: max,
-    }), [max]);
+    const mods = useMemo(
+        () => ({
+            [cls.max]: max,
+        }),
+        [max],
+    );
 
     return (
         <div className={classNames(cls.Flex, mods, additional)} {...otherProps}>

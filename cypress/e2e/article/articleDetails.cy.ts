@@ -3,11 +3,10 @@ let currentArticleId = '';
 describe('Пользователь заходит на страницу статьи ', () => {
     beforeEach(() => {
         cy.login();
-        cy.createArticle()
-            .then((article) => {
-                currentArticleId = article.id;
-                cy.visit(`articles/${currentArticleId}`);
-            });
+        cy.createArticle().then((article) => {
+            currentArticleId = article.id;
+            cy.visit(`articles/${currentArticleId}`);
+        });
     });
     afterEach(() => {
         cy.removeArticle(currentArticleId);
@@ -31,7 +30,9 @@ describe('Пользователь заходит на страницу стат
         cy.get('[data-selected=true]').should('have.length', 3);
     });
     it('Пользователь ставит оценку статьи (пример на фикстурах)', () => {
-        cy.intercept('GET', '**/articles/*', { fixture: 'articleDetails.json' });
+        cy.intercept('GET', '**/articles/*', {
+            fixture: 'articleDetails.json',
+        });
         cy.getByTestId('ArticleDetails.Info').should('exist');
         cy.getByTestId('RatingCard').scrollIntoView();
         cy.setRate(3, 'feedback');

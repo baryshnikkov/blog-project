@@ -7,11 +7,7 @@ export const Counter = memo(() => {
     // const dispatch = useDispatch();
     // const counterValue = useSelector(getCounterValue);
     const counterValue = useCounterValue();
-    const {
-        add,
-        increment,
-        decrement,
-    } = useCounterActions();
+    const { add, increment, decrement } = useCounterActions();
 
     // const handleIncrement = () => {
     //     dispatch(counterActions.increment());
@@ -35,25 +31,14 @@ export const Counter = memo(() => {
 
     return (
         <div>
-            <h1 data-testid="value-title">
-                {counterValue}
-            </h1>
-            <Button
-                onClick={handleIncrement}
-                data-testid="increment-btn"
-            >
+            <h1 data-testid="value-title">{counterValue}</h1>
+            <Button onClick={handleIncrement} data-testid="increment-btn">
                 +
             </Button>
-            <Button
-                onClick={handleDecrement}
-                data-testid="decrement-btn"
-            >
+            <Button onClick={handleDecrement} data-testid="decrement-btn">
                 -
             </Button>
-            <Button
-                onClick={handleAddFive}
-                data-testid="decrement-on-five-btn"
-            >
+            <Button onClick={handleAddFive} data-testid="decrement-on-five-btn">
                 +5
             </Button>
         </div>

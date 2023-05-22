@@ -12,24 +12,24 @@ interface CountrySelectProps {
 }
 
 export const CountrySelect = memo((props: CountrySelectProps) => {
-    const {
-        className,
-        value,
-        onChange,
-        readonly,
-    } = props;
+    const { className, value, onChange, readonly } = props;
     const { t } = useTranslation('countrySelect');
 
-    const CountryList = useMemo(() => Object.entries(Country).map((el) => (
-        {
-            value: el[0],
-            content: el[1],
-        }
-    )), []);
+    const CountryList = useMemo(
+        () =>
+            Object.entries(Country).map((el) => ({
+                value: el[0],
+                content: el[1],
+            })),
+        [],
+    );
 
-    const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as Country);
-    }, [onChange]);
+    const onChangeHandler = useCallback(
+        (value: string) => {
+            onChange?.(value as Country);
+        },
+        [onChange],
+    );
 
     return (
         <ListBox

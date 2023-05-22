@@ -14,27 +14,24 @@ interface PopoverProps {
 }
 
 export const Popover = memo((props: PopoverProps) => {
-    const {
-        className,
-        trigger,
-        direction = 'bottom right',
-        children,
-    } = props;
+    const { className, trigger, direction = 'bottom right', children } = props;
 
-    const additionalPanelClasses = useMemo(() => [
-        mapDirectionClass[direction],
-    ], [direction]);
+    const additionalPanelClasses = useMemo(
+        () => [mapDirectionClass[direction]],
+        [direction],
+    );
 
     return (
-        <HPopover className={classNames(cls.Popover, {}, [className, popupCls.popup])}>
-            <HPopover.Button
-                as="div"
-                className={popupCls.trigger}
-            >
+        <HPopover
+            className={classNames(cls.Popover, {}, [className, popupCls.popup])}
+        >
+            <HPopover.Button as="div" className={popupCls.trigger}>
                 {trigger}
             </HPopover.Button>
 
-            <HPopover.Panel className={classNames(cls.panel, {}, additionalPanelClasses)}>
+            <HPopover.Panel
+                className={classNames(cls.panel, {}, additionalPanelClasses)}
+            >
                 {children}
             </HPopover.Panel>
         </HPopover>

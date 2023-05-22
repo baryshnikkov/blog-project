@@ -11,43 +11,37 @@ import { getCanEditArticle } from '../../model/selectors/getCanEditArticle/getCa
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 
 interface ArticleDetailsPageHeaderProps {
-    className?: string
+    className?: string;
 }
 
-export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderProps) => {
-    const {
-        className,
-    } = props;
-    const { t } = useTranslation('articleDetails');
-    const navigate = useNavigate();
-    const canEdit = useSelector(getCanEditArticle);
-    const article = useSelector(getArticleDetailsData);
+export const ArticleDetailsPageHeader = memo(
+    (props: ArticleDetailsPageHeaderProps) => {
+        const { className } = props;
+        const { t } = useTranslation('articleDetails');
+        const navigate = useNavigate();
+        const canEdit = useSelector(getCanEditArticle);
+        const article = useSelector(getArticleDetailsData);
 
-    const onBackToList = useCallback(() => {
-        navigate(getRouteArticles());
-    }, [navigate]);
+        const onBackToList = useCallback(() => {
+            navigate(getRouteArticles());
+        }, [navigate]);
 
-    if (!article) {
-        return null;
-    }
+        if (!article) {
+            return null;
+        }
 
-    return (
-        <HStack
-            className={classNames('', {}, [className])}
-            justify="between"
-        >
-            <Button onClick={onBackToList}>
-                {t('Назад к списку')}
-            </Button>
-            {canEdit && (
-                <AppLink
-                    to={getRouteArticleEdit(article.id)}
-                >
-                    <Button>
-                        {t('Редактировать')}
-                    </Button>
-                </AppLink>
-            )}
-        </HStack>
-    );
-});
+        return (
+            <HStack
+                className={classNames('', {}, [className])}
+                justify="between"
+            >
+                <Button onClick={onBackToList}>{t('Назад к списку')}</Button>
+                {canEdit && (
+                    <AppLink to={getRouteArticleEdit(article.id)}>
+                        <Button>{t('Редактировать')}</Button>
+                    </AppLink>
+                )}
+            </HStack>
+        );
+    },
+);

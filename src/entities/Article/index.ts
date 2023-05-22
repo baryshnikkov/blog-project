@@ -7,10 +7,7 @@ import {
 import { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 import { getArticleDetailsData } from './model/selectors/getArticleDetailsData/getArticleDetailsData';
 import { ArticleList } from './ui/ArticleList/ArticleList';
-import type {
-    Article,
-    ArticleDetailsSchema,
-} from './model/types/article';
+import type { Article, ArticleDetailsSchema } from './model/types/article';
 
 export {
     ArticleDetails,
@@ -22,7 +19,4 @@ export {
     ArticleBlockTypes,
 };
 
-export type {
-    ArticleDetailsSchema,
-    Article,
-};
+export type { ArticleDetailsSchema, Article };
