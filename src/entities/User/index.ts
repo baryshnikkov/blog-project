@@ -18,7 +18,4 @@ export {
     getUserRoles,
 };
 
-export type {
-    UserSchema,
-    User,
-};
+export type { UserSchema, User };

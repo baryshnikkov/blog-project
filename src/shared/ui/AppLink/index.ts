@@ -1,6 +1,3 @@
 import { AppLink, AppLinkTheme } from './AppLink';
 
-export {
-    AppLink,
-    AppLinkTheme,
-};
+export { AppLink, AppLinkTheme };

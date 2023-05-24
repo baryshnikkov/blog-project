@@ -10,7 +10,7 @@ import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 interface SidebarProps {
-     className?: string
+    className?: string;
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
@@ -24,7 +24,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     return (
         <aside
             data-testid="sidebar"
-            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+                className,
+            ])}
         >
             <Button
                 data-testid="sidebar-toggle"
@@ -36,11 +38,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             >
                 {collapsed ? '>' : '<'}
             </Button>
-            <VStack
-                className={cls.items}
-                gap="8"
-                role="navigation"
-            >
+            <VStack className={cls.items} gap="8" role="navigation">
                 {sidebarItemsList.map((item) => (
                     <SidebarItem
                         item={item}
@@ -51,10 +49,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             </VStack>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
-                <LangSwitcher
-                    className={cls.lang}
-                    short={collapsed}
-                />
+                <LangSwitcher className={cls.lang} short={collapsed} />
             </div>
         </aside>
     );

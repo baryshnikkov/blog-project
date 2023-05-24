@@ -10,29 +10,29 @@ interface ArticleRecommendationsListProps {
     className?: string;
 }
 
-export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
-    const { className } = props;
-    const { t } = useTranslation();
-    const { isLoading, error, data: articles } = useArticleRecommendationsList(3);
+export const ArticleRecommendationsList = memo(
+    (props: ArticleRecommendationsListProps) => {
+        const { className } = props;
+        const { t } = useTranslation();
+        const {
+            isLoading,
+            error,
+            data: articles,
+        } = useArticleRecommendationsList(3);
 
-    if (isLoading || error || !articles) {
-        return null;
-    }
+        if (isLoading || error || !articles) {
+            return null;
+        }
 
-    return (
-        <VStack
-            className={classNames('', {}, [className])}
-            gap="8"
-            data-testid="ArticleRecommendationsList"
-        >
-            <Text
-                size={TextSize.L}
-                title={t('Рекомендуем')}
-            />
-            <ArticleList
-                articles={articles}
-                target="_blank"
-            />
-        </VStack>
-    );
-});
+        return (
+            <VStack
+                className={classNames('', {}, [className])}
+                gap="8"
+                data-testid="ArticleRecommendationsList"
+            >
+                <Text size={TextSize.L} title={t('Рекомендуем')} />
+                <ArticleList articles={articles} target="_blank" />
+            </VStack>
+        );
+    },
+);

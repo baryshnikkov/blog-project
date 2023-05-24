@@ -12,7 +12,7 @@ import cls from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 
 interface ProfileCardProps {
-    className?: string
+    className?: string;
     data?: Profile;
     isLoading?: boolean;
     error?: string;
@@ -48,7 +48,10 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
     if (isLoading) {
         return (
             <HStack
-                className={classNames(cls.ProfileCard, {}, [className, cls.loading])}
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.loading,
+                ])}
                 justify="center"
                 align="center"
                 max
@@ -61,7 +64,10 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
     if (error) {
         return (
             <HStack
-                className={classNames(cls.ProfileCard, {}, [className, cls.error])}
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.error,
+                ])}
                 justify="center"
                 align="center"
                 max
@@ -81,20 +87,10 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
     };
 
     return (
-        <VStack
-            className={classNames(cls.ProfileCard, mods, [className])}
-            max
-        >
+        <VStack className={classNames(cls.ProfileCard, mods, [className])} max>
             {data?.avatar && (
-                <HStack
-                    justify="center"
-                    align="center"
-                    max
-                >
-                    <Avatar
-                        src={data?.avatar}
-                        alt={t('Аватар')}
-                    />
+                <HStack justify="center" align="center" max>
+                    <Avatar src={data?.avatar} alt={t('Аватар')} />
                 </HStack>
             )}
             <Input

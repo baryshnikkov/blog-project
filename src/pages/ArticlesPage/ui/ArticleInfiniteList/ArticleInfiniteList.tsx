@@ -9,13 +9,11 @@ import { getArticlesPageIsLoading } from '../../model/selectors/getArticlesPageI
 import { getArticlesPageView } from '../../model/selectors/getArticlesPageView/getArticlesPageView';
 
 interface ArticleInfiniteListProps {
-    className?: string
+    className?: string;
 }
 
 export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
-    const {
-        className,
-    } = props;
+    const { className } = props;
     const { t } = useTranslation('articles');
     const articles = useSelector(getArticles.selectAll);
     const error = useSelector(getArticlesPageError);

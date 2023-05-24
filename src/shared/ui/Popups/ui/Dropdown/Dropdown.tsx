@@ -1,6 +1,4 @@
-import {
-    Fragment, memo, ReactNode, useMemo,
-} from 'react';
+import { Fragment, memo, ReactNode, useMemo } from 'react';
 import { Menu } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
@@ -24,30 +22,33 @@ interface DropdownProps {
 }
 
 export const Dropdown = memo((props: DropdownProps) => {
-    const {
-        className,
-        items,
-        trigger,
-        direction = 'bottom right',
-    } = props;
+    const { className, items, trigger, direction = 'bottom right' } = props;
 
-    const additionalMenuClasses = useMemo(() => [
-        mapDirectionClass[direction],
-    ], [direction]);
+    const additionalMenuClasses = useMemo(
+        () => [mapDirectionClass[direction]],
+        [direction],
+    );
 
     return (
         <Menu
             as="div"
-            className={classNames(cls.Dropdown, {}, [className, popupCls.popup])}
+            className={classNames(cls.Dropdown, {}, [
+                className,
+                popupCls.popup,
+            ])}
         >
-            <Menu.Button className={popupCls.trigger}>
-                {trigger}
-            </Menu.Button>
-            <Menu.Items className={classNames(cls.menu, {}, additionalMenuClasses)}>
+            <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
+            <Menu.Items
+                className={classNames(cls.menu, {}, additionalMenuClasses)}
+            >
                 {items.map((item, index) => {
-                    const content = ({ active }: {active: boolean}) => (
+                    const content = ({ active }: { active: boolean }) => (
                         <button
-                            className={classNames(cls.item, { [popupCls.active]: active }, [])}
+                            className={classNames(
+                                cls.item,
+                                { [popupCls.active]: active },
+                                [],
+                            )}
                             type="button"
                             onClick={item.onClick}
                         >
@@ -58,9 +59,7 @@ export const Dropdown = memo((props: DropdownProps) => {
                     if (item.href) {
                         return (
                             <AppLink to={item.href} key={index}>
-                                <Menu.Item
-                                    disabled={item.disabled}
-                                >
+                                <Menu.Item disabled={item.disabled}>
                                     {content}
                                 </Menu.Item>
                             </AppLink>

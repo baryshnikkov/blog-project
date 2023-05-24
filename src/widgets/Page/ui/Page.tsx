@@ -1,15 +1,13 @@
-import {
-    MutableRefObject,
-    ReactNode,
-    useRef,
-    UIEvent,
-} from 'react';
+import { MutableRefObject, ReactNode, useRef, UIEvent } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getScrollRestorationByPath, scrollRestorationActions } from '@/features/ScrollRestoration';
+import {
+    getScrollRestorationByPath,
+    scrollRestorationActions,
+} from '@/features/ScrollRestoration';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
@@ -25,16 +23,14 @@ interface PageProps extends TestProps {
 export const PAGE_ID = 'PAGE_ID';
 
 export const Page = (props: PageProps) => {
-    const {
-        className,
-        children,
-        onScrollEnd,
-    } = props;
+    const { className, children, onScrollEnd } = props;
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
-    const scrollPosition = useSelector((state: StateSchema) => getScrollRestorationByPath(state, pathname));
+    const scrollPosition = useSelector((state: StateSchema) =>
+        getScrollRestorationByPath(state, pathname),
+    );
 
     useInfiniteScroll({
         triggerRef,
@@ -47,10 +43,12 @@ export const Page = (props: PageProps) => {
     });
 
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-        dispatch(scrollRestorationActions.setScrollPosition({
-            path: pathname,
-            position: e.currentTarget.scrollTop,
-        }));
+        dispatch(
+            scrollRestorationActions.setScrollPosition({
+                path: pathname,
+                position: e.currentTarget.scrollTop,
+            }),
+        );
     }, 500);
 
     return (

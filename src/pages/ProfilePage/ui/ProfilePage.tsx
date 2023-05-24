@@ -5,7 +5,7 @@ import { VStack } from '@/shared/ui/Stack';
 import { EditableProfileCard } from '@/features/EditableProfileCard';
 
 const ProfilePage = memo(() => {
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
 
     return (
         <Page data-testid="ProfilePage">

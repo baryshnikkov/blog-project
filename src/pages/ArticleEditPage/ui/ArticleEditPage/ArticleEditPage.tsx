@@ -4,21 +4,17 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page';
 
 interface ArticleEditPageProps {
-    className?: string
+    className?: string;
 }
 
 const ArticleEditPage = memo((props: ArticleEditPageProps) => {
-    const {
-        className,
-    } = props;
-    const { id } = useParams<{id: string}>();
+    const { className } = props;
+    const { id } = useParams<{ id: string }>();
     const isEdit = Boolean(id);
 
     return (
         <Page className={classNames('', {}, [className])}>
-            {isEdit
-                ? `MOC EDIT, id = ${id}`
-                : 'MOC CREATE' }
+            {isEdit ? `MOC EDIT, id = ${id}` : 'MOC CREATE'}
         </Page>
     );
 });

@@ -10,11 +10,12 @@ export default {
     },
     decorators: [
         (Story) => (
-            <div style={{
-                paddingTop: 300,
-                paddingLeft: 100,
-                paddingBottom: 300,
-            }}
+            <div
+                style={{
+                    paddingTop: 300,
+                    paddingLeft: 100,
+                    paddingBottom: 300,
+                }}
             >
                 <Story />
             </div>
@@ -22,7 +23,9 @@ export default {
     ],
 } as ComponentMeta<typeof ListBox>;
 
-const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
+const Template: ComponentStory<typeof ListBox> = (args) => (
+    <ListBox {...args} />
+);
 
 const options = [
     { value: 'value1', content: 'content1' },

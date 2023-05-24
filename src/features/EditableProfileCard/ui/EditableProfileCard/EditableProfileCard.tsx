@@ -8,7 +8,10 @@ import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
 import { Text, TextTheme } from '@/shared/ui/Text';
 import { ProfileCard } from '@/entities/Profile';
-import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducerList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from '@/shared/ui/Stack';
 import { ValidateProfileErrors } from '../../model/consts/editableProfileCardConsts';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
@@ -30,10 +33,7 @@ interface EditableProfileCardProps {
 }
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
-    const {
-        className,
-        id,
-    } = props;
+    const { className, id } = props;
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
     const formData = useSelector(getProfileForm);
@@ -42,18 +42,31 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     const readonly = useSelector(getProfileReadonly);
     const errors = useSelector(getProfileValidateErrors);
 
-    const validateErrorsTranslates = useMemo(() => ({
-        [ValidateProfileErrors.INCORRECT_FIRST]: t('Некорректное имя'),
-        [ValidateProfileErrors.INCORRECT_LASTNAME]: t('Некорретная фамилия'),
-        [ValidateProfileErrors.INCORRECT_AGE]: t('Некорректный возраст'),
-        [ValidateProfileErrors.INCORRECT_AVATAR]: t('Некорректная ссылка на аватар'),
-        [ValidateProfileErrors.INCORRECT_USERNAME]: t('Некорректное имя пользователя'),
-        [ValidateProfileErrors.INCORRECT_CURRENCY]: t('Некорректная валюта'),
-        [ValidateProfileErrors.INCORRECT_COUNTRY]: t('Некорректная страна'),
-        [ValidateProfileErrors.INCORRECT_CITY]: t('Некорректный город'),
-        [ValidateProfileErrors.NO_DATA]: t('Данные не указаны'),
-        [ValidateProfileErrors.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
-    }), [t]);
+    const validateErrorsTranslates = useMemo(
+        () => ({
+            [ValidateProfileErrors.INCORRECT_FIRST]: t('Некорректное имя'),
+            [ValidateProfileErrors.INCORRECT_LASTNAME]: t(
+                'Некорретная фамилия',
+            ),
+            [ValidateProfileErrors.INCORRECT_AGE]: t('Некорректный возраст'),
+            [ValidateProfileErrors.INCORRECT_AVATAR]: t(
+                'Некорректная ссылка на аватар',
+            ),
+            [ValidateProfileErrors.INCORRECT_USERNAME]: t(
+                'Некорректное имя пользователя',
+            ),
+            [ValidateProfileErrors.INCORRECT_CURRENCY]: t(
+                'Некорректная валюта',
+            ),
+            [ValidateProfileErrors.INCORRECT_COUNTRY]: t('Некорректная страна'),
+            [ValidateProfileErrors.INCORRECT_CITY]: t('Некорректный город'),
+            [ValidateProfileErrors.NO_DATA]: t('Данные не указаны'),
+            [ValidateProfileErrors.SERVER_ERROR]: t(
+                'Серверная ошибка при сохранении',
+            ),
+        }),
+        [t],
+    );
 
     useInitialEffect(() => {
         if (id) {
@@ -61,49 +74,69 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         }
     });
 
-    const onChangeFirstname = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ first: value || '' }));
-    }, [dispatch]);
+    const onChangeFirstname = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ first: value || '' }));
+        },
+        [dispatch],
+    );
 
-    const onChangeLastname = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ lastname: value || '' }));
-    }, [dispatch]);
+    const onChangeLastname = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ lastname: value || '' }));
+        },
+        [dispatch],
+    );
 
-    const onChangeAge = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ age: Number(value || '0') }));
-    }, [dispatch]);
+    const onChangeAge = useCallback(
+        (value?: string) => {
+            dispatch(
+                profileActions.updateProfile({ age: Number(value || '0') }),
+            );
+        },
+        [dispatch],
+    );
 
-    const onChangeCity = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ city: value || '' }));
-    }, [dispatch]);
+    const onChangeCity = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ city: value || '' }));
+        },
+        [dispatch],
+    );
 
-    const onChangeUsername = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ username: value || '' }));
-    }, [dispatch]);
+    const onChangeUsername = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ username: value || '' }));
+        },
+        [dispatch],
+    );
 
-    const onChangeAvatar = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ avatar: value || '' }));
-    }, [dispatch]);
+    const onChangeAvatar = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ avatar: value || '' }));
+        },
+        [dispatch],
+    );
 
-    const onChangeCurrency = useCallback((currency?: Currency) => {
-        dispatch(profileActions.updateProfile({ currency }));
-    }, [dispatch]);
+    const onChangeCurrency = useCallback(
+        (currency?: Currency) => {
+            dispatch(profileActions.updateProfile({ currency }));
+        },
+        [dispatch],
+    );
 
-    const onChangeCountry = useCallback((country?: Country) => {
-        dispatch(profileActions.updateProfile({ country }));
-    }, [dispatch]);
+    const onChangeCountry = useCallback(
+        (country?: Country) => {
+            dispatch(profileActions.updateProfile({ country }));
+        },
+        [dispatch],
+    );
 
     return (
-        <DynamicModuleLoader
-            reducers={initialReducers}
-            removeAfterUnmount
-        >
-            <VStack
-                className={classNames('', {}, [className])}
-                gap="16"
-            >
+        <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
+            <VStack className={classNames('', {}, [className])} gap="16">
                 <EditableProfileCardHeader />
-                {errors?.length && (
+                {errors?.length &&
                     errors.map((err) => (
                         <Text
                             text={validateErrorsTranslates[err]}
@@ -111,8 +144,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                             key={err}
                             data-testid="EditableProfileCard.Error"
                         />
-                    ))
-                )}
+                    ))}
                 <ProfileCard
                     data={formData}
                     isLoading={isLoading}

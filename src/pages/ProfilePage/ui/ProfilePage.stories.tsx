@@ -20,34 +20,39 @@ const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [StoreDecorator({
-    profile: {
-        form: {
-            first: 'Tom',
-            lastname: 'Brown',
-            age: 33,
-            currency: Currency.RUB,
-            country: Country.Russia,
-            city: 'Moscow',
-            username: 'admin',
-            avatar: 'https://i.pinimg.com/736x/21/20/b0/2120b058cb9946e36306778243eadae5.jpg',
+Light.decorators = [
+    StoreDecorator({
+        profile: {
+            form: {
+                first: 'Tom',
+                lastname: 'Brown',
+                age: 33,
+                currency: Currency.RUB,
+                country: Country.Russia,
+                city: 'Moscow',
+                username: 'admin',
+                avatar: 'https://i.pinimg.com/736x/21/20/b0/2120b058cb9946e36306778243eadae5.jpg',
+            },
         },
-    },
-})];
+    }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-    profile: {
-        form: {
-            first: 'Tom',
-            lastname: 'Brown',
-            age: 33,
-            currency: Currency.RUB,
-            country: Country.Russia,
-            city: 'Moscow',
-            username: 'admin',
-            avatar: 'https://i.pinimg.com/736x/21/20/b0/2120b058cb9946e36306778243eadae5.jpg',
+Dark.decorators = [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+        profile: {
+            form: {
+                first: 'Tom',
+                lastname: 'Brown',
+                age: 33,
+                currency: Currency.RUB,
+                country: Country.Russia,
+                city: 'Moscow',
+                username: 'admin',
+                avatar: 'https://i.pinimg.com/736x/21/20/b0/2120b058cb9946e36306778243eadae5.jpg',
+            },
         },
-    },
-})];
+    }),
+];

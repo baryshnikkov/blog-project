@@ -8,7 +8,10 @@ import { Card } from '@/shared/ui/Card';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button } from '@/shared/ui/Button';
 import { AppLink } from '@/shared/ui/AppLink';
-import { ArticleBlockTypes, ArticleView } from '../../model/consts/articleConsts';
+import {
+    ArticleBlockTypes,
+    ArticleView,
+} from '../../model/consts/articleConsts';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
 import { Article, ArticleTextBlock } from '../../model/types/article';
@@ -24,49 +27,26 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-    const {
-        className,
-        article,
-        view,
-        target,
-    } = props;
+    const { className, article, view, target } = props;
     const { t } = useTranslation('articleListItem');
 
-    const date = (
-        <Text
-            className={cls.date}
-            text={article.createdAt}
-        />
-    );
+    const date = <Text className={cls.date} text={article.createdAt} />;
 
-    const title = (
-        <Text
-            className={cls.title}
-            title={article.title}
-        />
-    );
+    const title = <Text className={cls.title} title={article.title} />;
 
-    const types = (
-        <Text
-            className={cls.types}
-            text={article.type.join(', ')}
-        />
-    );
+    const types = <Text className={cls.types} text={article.type.join(', ')} />;
 
     const views = (
         <>
-            <Text
-                className={cls.views}
-                text={String(article.views)}
-            />
-            <Icon
-                Svg={EyeIcon}
-            />
+            <Text className={cls.views} text={String(article.views)} />
+            <Icon Svg={EyeIcon} />
         </>
     );
 
     if (view === ArticleView.LIST) {
-        const textBlock = article.blocks.find((block) => block.type === ArticleBlockTypes.TEXT) as ArticleTextBlock;
+        const textBlock = article.blocks.find(
+            (block) => block.type === ArticleBlockTypes.TEXT,
+        ) as ArticleTextBlock;
 
         return (
             <div
@@ -108,9 +88,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                             to={getRouteArticleDetails(article.id)}
                             target={target}
                         >
-                            <Button>
-                                {t('Читать далее...')}
-                            </Button>
+                            <Button>{t('Читать далее...')}</Button>
                         </AppLink>
                         {views}
                     </div>
