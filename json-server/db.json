@@ -569,6 +569,10 @@
             "username": "admin",
             "password": "admin",
             "roles": ["ADMIN"],
+            "features": {
+                "isArticleRatingEnabled": true,
+                "isCounterEnabled": true
+            },
             "avatar": "https://www.softpal.com/portals/97/images/our_happy_clients_profile_low_resolution_images/testimonials_profile44.png"
         },
         {
@@ -576,6 +580,10 @@
             "username": "user",
             "password": "user",
             "roles": ["USER"],
+            "features": {
+                "isArticleRatingEnabled": false,
+                "isCounterEnabled": false
+            },
             "avatar": "https://oboi-plenka.ru/image/cache/catalog/divino/8/208079259-fotooboi-c1-371-divino-panda-3-m-h-2-38-m-1200x800.jpg"
         },
         {
@@ -583,12 +591,20 @@
             "username": "manager",
             "password": "manager",
             "roles": ["MANAGER"],
+            "features": {
+                "isArticleRatingEnabled": false,
+                "isCounterEnabled": false
+            },
             "avatar": ""
         },
         {
             "id": "4",
             "username": "usertest",
             "password": "usertest",
+            "features": {
+                "isArticleRatingEnabled": true,
+                "isCounterEnabled": true
+            },
             "roles": ["ADMIN"],
             "avatar": "https://oboi-plenka.ru/image/cache/catalog/divino/8/208079259-fotooboi-c1-371-divino-panda-3-m-h-2-38-m-1200x800.jpg"
         }
