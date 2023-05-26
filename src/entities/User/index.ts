@@ -5,6 +5,7 @@ import { getUserInited } from './model/selectors/getUserInited/getUserInited';
 import { getUserRoles } from './model/selectors/getUserRoles/getUserRoles';
 import { isUserAdmin } from './model/selectors/isUserAdmin/isUserAdmin';
 import { isUserManager } from './model/selectors/isUserManager/isUserManager';
+import { initAuthData } from './model/services/initAuthData';
 import { saveJsonSettings } from './model/services/saveJsonSettings';
 import { userActions, userReducer } from './model/slice/userSlice';
 import type { User, UserSchema } from './model/types/userSchema';
@@ -20,6 +21,7 @@ export {
     getUserRoles,
     saveJsonSettings,
     useJsonSettings,
+    initAuthData,
 };
 
 export type { UserSchema, User };
