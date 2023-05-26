@@ -2,12 +2,12 @@ import { FeatureFlags } from '@/shared/types/featureFlags';
 
 let featuresFlags: FeatureFlags = {};
 
-export const setFeaturesFlags = (newFeaturesFlag: FeatureFlags) => {
+export const setFeaturesFlag = (newFeaturesFlag: FeatureFlags) => {
     if (newFeaturesFlag) {
         featuresFlags = newFeaturesFlag;
     }
 };
 
-export const getFeaturesFlags = (flag: keyof FeatureFlags) => {
+export const getFeaturesFlag = (flag: keyof FeatureFlags) => {
     return featuresFlags[flag];
 };

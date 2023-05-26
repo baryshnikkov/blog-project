@@ -13,8 +13,8 @@ import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsLis
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ToggleFeatures } from '@/shared/features';
 import { ArticleRating } from '@/features/ArticleRating';
-import { toggleFeatures } from '@/shared/features';
 import { Card } from '@/shared/ui/Card';
 
 const initialReducers: ReducerList = {
@@ -29,11 +29,11 @@ const ArticleDetailsPage = memo(() => {
         return null;
     }
 
-    const articleRating = toggleFeatures({
-        name: 'isArticleRatingEnabled',
-        on: () => <ArticleRating articleId={id} />,
-        off: () => <Card>{t('Оценка статей скоро появится!')}</Card>,
-    });
+    // const articleRating = toggleFeatures({
+    //     name: 'isArticleRatingEnabled',
+    //     on: () => <ArticleRating articleId={id} />,
+    //     off: () => <Card>{t('Оценка статей скоро появится!')}</Card>,
+    // });
 
     return (
         <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
@@ -41,7 +41,12 @@ const ArticleDetailsPage = memo(() => {
                 <VStack gap="16">
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    {articleRating}
+                    {/* {articleRating} */}
+                    <ToggleFeatures
+                        feature="isArticleRatingEnabled"
+                        on={<ArticleRating articleId={id} />}
+                        off={<Card>{t('Оценка статей скоро появится!')}</Card>}
+                    />
                     <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id} />
                 </VStack>

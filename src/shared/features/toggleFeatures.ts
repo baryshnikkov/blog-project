@@ -1,5 +1,5 @@
 import { FeatureFlags } from '@/shared/types/featureFlags';
-import { getFeaturesFlags } from './setGetFeatures';
+import { getFeaturesFlag } from './setGetFeatures';
 
 interface ToggleFeatures<T> {
     name: keyof FeatureFlags;
@@ -8,7 +8,7 @@ interface ToggleFeatures<T> {
 }
 
 export function toggleFeatures<T>({ name, on, off }: ToggleFeatures<T>): T {
-    if (getFeaturesFlags(name)) {
+    if (getFeaturesFlag(name)) {
         return on();
     }
 
