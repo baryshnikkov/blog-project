@@ -50,6 +50,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'react/destructuring-assignment': 'warn',
+        'react/no-unstable-nested-components': 'warn',
         'i18next/no-literal-string': [
             'error',
             {
@@ -65,6 +66,7 @@ module.exports = {
                     'role',
                     'as',
                     'border',
+                    'feature',
                 ],
             },
         ],

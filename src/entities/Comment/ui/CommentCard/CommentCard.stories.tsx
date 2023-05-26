@@ -14,21 +14,26 @@ const Template: ComponentStory<typeof CommentCard> = (args) => (
     <CommentCard {...args} />
 );
 
+const comment = {
+    id: '1',
+    text: 'Hello, World!',
+    user: {
+        id: '1',
+        username: 'user1',
+        features: {
+            isCounterEnabled: true,
+            isArticleRatingEnabled: true,
+        },
+    },
+};
+
 export const Primary = Template.bind({});
 Primary.args = {
-    comment: {
-        id: '1',
-        text: 'Hello, World!',
-        user: { id: '1', username: 'user1' },
-    },
+    comment,
 };
 
 export const Loading = Template.bind({});
 Loading.args = {
-    comment: {
-        id: '1',
-        text: 'Hello, World!',
-        user: { id: '1', username: 'user1' },
-    },
+    comment,
     isLoading: true,
 };
