@@ -616,7 +616,8 @@
       "jsonSettings": {
         "theme": "app_orange_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "articlesPageWasOpen": true
       },
       "avatar": "https://www.softpal.com/portals/97/images/our_happy_clients_profile_low_resolution_images/testimonials_profile44.png"
     },
@@ -634,7 +635,8 @@
       "jsonSettings": {
         "theme": "app_orange_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "articlesPageWasOpen": true
       },
       "avatar": "https://oboi-plenka.ru/image/cache/catalog/divino/8/208079259-fotooboi-c1-371-divino-panda-3-m-h-2-38-m-1200x800.jpg"
     },
