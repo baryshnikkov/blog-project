@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/Card';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { cn } from '@/shared/lib/classNames/classNames';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import cls from './ArticleListItem.module.scss';
 import { ArticleView } from '../../model/consts/articleConsts';
 
@@ -17,7 +17,7 @@ export const ArticleListItemSkeleton = memo(
         if (view === ArticleView.LIST) {
             return (
                 <div
-                    className={classNames(cls.ArticleListItem, {}, [
+                    className={cn(cls.ArticleListItem, {}, [
                         className,
                         cls[view],
                     ])}
@@ -54,10 +54,7 @@ export const ArticleListItemSkeleton = memo(
 
         return (
             <div
-                className={classNames(cls.ArticleListItem, {}, [
-                    className,
-                    cls[view],
-                ])}
+                className={cn(cls.ArticleListItem, {}, [className, cls[view]])}
             >
                 <Card>
                     <div className={cls.imageWrapper}>

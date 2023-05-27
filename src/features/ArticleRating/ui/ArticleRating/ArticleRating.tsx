@@ -1,14 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { cn } from '@/shared/lib/classNames/classNames';
 import { RatingCard } from '@/entities/Rating';
 import {
     useGetArticleRating,
     useRateArticle,
 } from '../../api/articleRatingApi';
 import { getAuthUserData } from '@/entities/User';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 
 interface ArticleRatingProps {
     className?: string;
@@ -64,7 +64,7 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
 
     return (
         <RatingCard
-            className={classNames('', {}, [className])}
+            className={cn('', {}, [className])}
             title={t('Оцените статью')}
             feedbackTitle={t(
                 'Оставьте свой отзыв о статье, это поможет улучшить качество',

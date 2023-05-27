@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text, TextAlign } from '@/shared/ui/Text';
+import { cn } from '@/shared/lib/classNames/classNames';
+import { Text, TextAlign } from '@/shared/ui/deprecated/Text';
 import { ArticleImageBlock } from '../../model/types/article';
 import cls from './ArticleImageBlockComponent.module.scss';
 
@@ -15,9 +15,7 @@ export const ArticleImageBlockComponent = memo(
 
         return (
             <div
-                className={classNames(cls.ArticleImageBlockComponent, {}, [
-                    className,
-                ])}
+                className={cn(cls.ArticleImageBlockComponent, {}, [className])}
             >
                 <img className={cls.img} src={block.src} alt={block.title} />
                 {block.title && (

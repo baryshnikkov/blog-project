@@ -1,9 +1,11 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Dropdown } from '@/shared/ui/Popups';
+import { cn } from '@/shared/lib/classNames/classNames';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
+import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
+import { Dropdown } from '@/shared/ui/redesigned/Popups';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import {
     getAuthUserData,
     isUserAdmin,
@@ -11,6 +13,7 @@ import {
     userActions,
 } from '@/entities/User';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
+import { ToggleFeatures } from '@/shared/features';
 
 interface AvatarDropdownProps {
     className?: string;
@@ -30,14 +33,9 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         dispatch(userActions.logout());
     }, [dispatch]);
 
-    if (!authData) {
-        return null;
-    }
-
-    return (
-        <Dropdown
-            className={classNames('', {}, [className])}
-            items={[
+    const items = useMemo(() => {
+        if (authData) {
+            return [
                 {
                     content: t('Профиль'),
                     href: getRouteProfile(authData.id),
@@ -54,9 +52,40 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
                     content: t('Выйти'),
                     onClick: onLogout,
                 },
-            ]}
-            trigger={<Avatar src={authData.avatar} size={30} isInverted />}
-            direction="bottom left"
+            ];
+        }
+        return [];
+    }, [authData, isAdminPanelAvailable, onLogout, t]);
+
+    if (!authData) {
+        return null;
+    }
+
+    return (
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <Dropdown
+                    direction="bottom left"
+                    className={cn('', {}, [className])}
+                    items={items}
+                    trigger={<Avatar size={40} src={authData.avatar} />}
+                />
+            }
+            off={
+                <DropdownDeprecated
+                    direction="bottom left"
+                    className={cn('', {}, [className])}
+                    items={items}
+                    trigger={
+                        <AvatarDeprecated
+                            isInverted
+                            size={30}
+                            src={authData.avatar}
+                        />
+                    }
+                />
+            }
         />
     );
 });

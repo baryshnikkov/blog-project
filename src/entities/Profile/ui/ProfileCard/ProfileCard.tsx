@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
-import { Input } from '@/shared/ui/Input';
-import { Loader } from '@/shared/ui/Loader';
-import { Avatar } from '@/shared/ui/Avatar';
+import { cn, Mods } from '@/shared/lib/classNames/classNames';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { Loader } from '@/shared/ui/deprecated/Loader';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Currency, CurrencySelect } from '@/entities/Currency';
 import { Country, CountrySelect } from '@/entities/Country';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import cls from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 
@@ -48,10 +48,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
     if (isLoading) {
         return (
             <HStack
-                className={classNames(cls.ProfileCard, {}, [
-                    className,
-                    cls.loading,
-                ])}
+                className={cn(cls.ProfileCard, {}, [className, cls.loading])}
                 justify="center"
                 align="center"
                 max
@@ -64,10 +61,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
     if (error) {
         return (
             <HStack
-                className={classNames(cls.ProfileCard, {}, [
-                    className,
-                    cls.error,
-                ])}
+                className={cn(cls.ProfileCard, {}, [className, cls.error])}
                 justify="center"
                 align="center"
                 max
@@ -87,7 +81,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
     };
 
     return (
-        <VStack className={classNames(cls.ProfileCard, mods, [className])} max>
+        <VStack className={cn(cls.ProfileCard, mods, [className])} max>
             {data?.avatar && (
                 <HStack justify="center" align="center" max>
                     <Avatar src={data?.avatar} alt={t('Аватар')} />

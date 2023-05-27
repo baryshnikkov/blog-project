@@ -2,17 +2,17 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { cn } from '@/shared/lib/classNames/classNames';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { ProfileCard } from '@/entities/Profile';
 import {
     DynamicModuleLoader,
     ReducerList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ValidateProfileErrors } from '../../model/consts/editableProfileCardConsts';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -134,7 +134,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
     return (
         <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-            <VStack className={classNames('', {}, [className])} gap="16">
+            <VStack className={cn('', {}, [className])} gap="16">
                 <EditableProfileCardHeader />
                 {errors?.length &&
                     errors.map((err) => (

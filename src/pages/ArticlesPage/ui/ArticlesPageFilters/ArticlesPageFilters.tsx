@@ -1,15 +1,15 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { cn } from '@/shared/lib/classNames/classNames';
 import {
     ArticleSortField,
     ArticleTypes,
     ArticleView,
 } from '@/entities/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Card } from '@/shared/ui/Card';
-import { Input } from '@/shared/ui/Input';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { Input } from '@/shared/ui/deprecated/Input';
 import { SortOrder } from '@/shared/types/sort';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
@@ -88,7 +88,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     );
 
     return (
-        <div className={classNames('', {}, [className])}>
+        <div className={cn('', {}, [className])}>
             <div className={cls.sortWrapper}>
                 <ArticleSortSelector
                     sort={sort}

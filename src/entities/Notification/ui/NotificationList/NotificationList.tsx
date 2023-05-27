@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/Stack';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { cn } from '@/shared/lib/classNames/classNames';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import cls from './NotificationList.module.scss';
 import { useNotifications } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
@@ -20,10 +20,7 @@ export const NotificationList = memo((props: NotificationProps) => {
 
     if (isLoading) {
         return (
-            <VStack
-                className={classNames(cls.Notification, {}, [className])}
-                gap="16"
-            >
+            <VStack className={cn(cls.Notification, {}, [className])} gap="16">
                 <Skeleton width="100%" height="80px" border="8px" />
                 <Skeleton width="100%" height="80px" border="8px" />
                 <Skeleton width="100%" height="80px" border="8px" />
@@ -32,10 +29,7 @@ export const NotificationList = memo((props: NotificationProps) => {
     }
 
     return (
-        <VStack
-            className={classNames(cls.Notification, {}, [className])}
-            gap="16"
-        >
+        <VStack className={cn(cls.Notification, {}, [className])} gap="16">
             {notifications?.map((item) => (
                 <NotificationItem key={item.id} item={item} />
             ))}

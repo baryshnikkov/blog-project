@@ -1,15 +1,15 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Input } from '@/shared/ui/Input';
-import { Button } from '@/shared/ui/Button';
+import { cn } from '@/shared/lib/classNames/classNames';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { Button } from '@/shared/ui/deprecated/Button';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     DynamicModuleLoader,
     ReducerList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { HStack } from '@/shared/ui/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { getCommentFormText } from '../../model/selectors/getCommentFormText/getCommentFormText';
 import cls from './AddCommentForm.module.scss';
 import {
@@ -50,7 +50,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
         <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
             <HStack
                 data-testid="AddCommentForm"
-                className={classNames(cls.AddCommentForm, {}, [className])}
+                className={cn(cls.AddCommentForm, {}, [className])}
                 justify="between"
                 align="center"
             >

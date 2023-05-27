@@ -1,11 +1,17 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import {
+    AppLink as AppLinkDeprecated,
+    AppLinkTheme,
+} from '@/shared/ui/deprecated/AppLink';
+import { cn } from '@/shared/lib/classNames/classNames';
 import { getAuthUserData } from '@/entities/User';
 import { SidebarItemType } from '../../model/types/sidebar';
 import cls from './SidebarItem.module.scss';
+import { ToggleFeatures } from '@/shared/features';
+import { AppLink } from '@/shared/ui/redesigned/AppLink';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 
 interface SidebarItemProps {
     item: SidebarItemType;
@@ -22,13 +28,32 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
     }
 
     return (
-        <AppLink
-            className={classNames(cls.item, { [cls.collapsed]: collapsed }, [])}
-            to={item.path}
-            theme={AppLinkTheme.INVERTED_PRIMARY}
-        >
-            <item.Icon className={cls.icon} />
-            <span className={cls.link}>{t(item.text)}</span>
-        </AppLink>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <AppLink
+                    className={cn(
+                        cls.itemRedesigned,
+                        { [cls.collapsedRedesigned]: collapsed },
+                        [],
+                    )}
+                    activeClassName={cls.active}
+                    to={item.path}
+                >
+                    <Icon Svg={item.Icon} />
+                    <span className={cls.link}>{t(item.text)}</span>
+                </AppLink>
+            }
+            off={
+                <AppLinkDeprecated
+                    className={cn(cls.item, { [cls.collapsed]: collapsed }, [])}
+                    to={item.path}
+                    theme={AppLinkTheme.INVERTED_PRIMARY}
+                >
+                    <item.Icon className={cls.icon} />
+                    <span className={cls.link}>{t(item.text)}</span>
+                </AppLinkDeprecated>
+            }
+        />
     );
 });

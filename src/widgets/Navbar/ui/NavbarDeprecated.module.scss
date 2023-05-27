@@ -1,0 +1,24 @@
+.Navbar {
+    width: 100%;
+    height: var(--navbar-height);
+    background: var(--inverted-bg-color);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.links,
+.actions {
+    margin-left: auto;
+}
+
+.appName {
+    margin-left: 12px;
+    width: var(--sidebar-width);
+    flex-shrink: 0;
+}
+
+.linkCreate {
+    margin: 12px;
+    width: 100%;
+}

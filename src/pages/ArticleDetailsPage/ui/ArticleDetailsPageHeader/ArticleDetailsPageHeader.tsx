@@ -2,11 +2,11 @@ import { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Button } from '@/shared/ui/Button';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink } from '@/shared/ui/AppLink';
+import { Button } from '@/shared/ui/deprecated/Button';
+import { cn } from '@/shared/lib/classNames/classNames';
+import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { getArticleDetailsData } from '@/entities/Article';
-import { HStack } from '@/shared/ui/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { getCanEditArticle } from '../../model/selectors/getCanEditArticle/getCanEditArticle';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 
@@ -31,10 +31,7 @@ export const ArticleDetailsPageHeader = memo(
         }
 
         return (
-            <HStack
-                className={classNames('', {}, [className])}
-                justify="between"
-            >
+            <HStack className={cn('', {}, [className])} justify="between">
                 <Button onClick={onBackToList}>{t('Назад к списку')}</Button>
                 {canEdit && (
                     <AppLink to={getRouteArticleEdit(article.id)}>
