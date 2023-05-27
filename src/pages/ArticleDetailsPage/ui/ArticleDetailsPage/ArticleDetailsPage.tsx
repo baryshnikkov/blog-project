@@ -2,20 +2,20 @@ import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from '@/entities/Article';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { cn } from '@/shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
     ReducerList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ToggleFeatures } from '@/shared/features';
 import { ArticleRating } from '@/features/ArticleRating';
-import { Card } from '@/shared/ui/Card';
+import { Card } from '@/shared/ui/deprecated/Card';
 
 const initialReducers: ReducerList = {
     articleDetailsPage: articleDetailsPageReducer,
@@ -37,7 +37,7 @@ const ArticleDetailsPage = memo(() => {
 
     return (
         <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-            <Page className={classNames('ArticleDetailsPage', {}, [])}>
+            <Page className={cn('ArticleDetailsPage', {}, [])}>
                 <VStack gap="16">
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />

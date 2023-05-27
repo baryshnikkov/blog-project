@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { cn } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page';
 
 interface ArticleEditPageProps {
@@ -13,7 +13,7 @@ const ArticleEditPage = memo((props: ArticleEditPageProps) => {
     const isEdit = Boolean(id);
 
     return (
-        <Page className={classNames('', {}, [className])}>
+        <Page className={cn('', {}, [className])}>
             {isEdit ? `MOC EDIT, id = ${id}` : 'MOC CREATE'}
         </Page>
     );

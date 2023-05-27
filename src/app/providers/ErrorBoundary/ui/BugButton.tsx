@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button';
+import { cn } from '@/shared/lib/classNames/classNames';
+import { Button } from '@/shared/ui/deprecated/Button';
 
 interface BugButtonProps {
     className?: string;
@@ -20,10 +20,7 @@ export const BugButton = ({ className }: BugButtonProps) => {
     }, [error]);
 
     return (
-        <Button
-            onClick={onThrowError}
-            className={classNames('', {}, [className])}
-        >
+        <Button onClick={onThrowError} className={cn('', {}, [className])}>
             {t('Вызвыть ошибку')}
         </Button>
     );

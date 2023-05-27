@@ -1,21 +1,19 @@
-import { classNames } from './classNames';
+import { cn } from './classNames';
 
 describe('classNames', () => {
     test('with only first param', () => {
-        expect(classNames('someClass')).toBe('someClass');
+        expect(cn('someClass')).toBe('someClass');
     });
 
     test('with additional class', () => {
         const expected = 'someClass class1 class2';
-        expect(classNames('someClass', {}, ['class1', 'class2'])).toBe(
-            expected,
-        );
+        expect(cn('someClass', {}, ['class1', 'class2'])).toBe(expected);
     });
 
     test('with mods (true, false)', () => {
         const expected = 'someClass class1 class2 hovered';
         expect(
-            classNames(
+            cn(
                 'someClass',
                 {
                     hovered: true,
@@ -29,7 +27,7 @@ describe('classNames', () => {
     test('with mads (undefined, true)', () => {
         const expected = 'someClass class1 class2 scrollable';
         expect(
-            classNames(
+            cn(
                 'someClass',
                 {
                     hovered: undefined,

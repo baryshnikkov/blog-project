@@ -1,7 +1,7 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Text, TextSize } from '@/shared/ui/Text';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { cn } from '@/shared/lib/classNames/classNames';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import cls from './ArticleList.module.scss';
 import { Article } from '../../model/types/article';
@@ -35,12 +35,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     if (!isLoading && !articles.length) {
         return (
-            <div
-                className={classNames(cls.ArticleList, {}, [
-                    className,
-                    cls[view],
-                ])}
-            >
+            <div className={cn(cls.ArticleList, {}, [className, cls[view]])}>
                 <Text title={t('Статьи не найдены')} size={TextSize.L} />
             </div>
         );
@@ -48,7 +43,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     return (
         <div
-            className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+            className={cn(cls.ArticleList, {}, [className, cls[view]])}
             data-testid="ArticleList"
         >
             {articles.map((item) => (

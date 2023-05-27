@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useEffect, useState } from 'react';
 import { isMobile } from 'react-device-detect';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Modal } from '@/shared/ui/Modal';
+import { cn } from '@/shared/lib/classNames/classNames';
+import { Modal } from '@/shared/ui/deprecated/Modal';
 import { saveJsonSettings, useJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text } from '@/shared/ui/Text';
-import { Drawer } from '@/shared/ui/Drawer';
+import { Text } from '@/shared/ui/deprecated/Text';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
 
 interface ArticlePageGreetingProps {
     className?: string;
@@ -42,7 +42,7 @@ export const ArticlePageGreeting = memo((props: ArticlePageGreetingProps) => {
     if (isMobile) {
         return (
             <Drawer
-                className={classNames('', {}, [className])}
+                className={cn('', {}, [className])}
                 lazy
                 isOpen={isOpen}
                 onClose={onClose}
@@ -54,7 +54,7 @@ export const ArticlePageGreeting = memo((props: ArticlePageGreetingProps) => {
 
     return (
         <Modal
-            className={classNames('', {}, [className])}
+            className={cn('', {}, [className])}
             lazy
             isOpen={isOpen}
             onClose={onClose}

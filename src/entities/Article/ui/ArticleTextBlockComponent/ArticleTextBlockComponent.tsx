@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text';
+import { cn } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { ArticleTextBlock } from '../../model/types/article';
 import cls from './ArticleTextBlockComponent.module.scss';
 
@@ -14,7 +14,7 @@ export const ArticleTextBlockComponent = memo(
         const { className, block } = props;
 
         return (
-            <div className={classNames('', {}, [className])}>
+            <div className={cn('', {}, [className])}>
                 {block.title && (
                     <Text title={block.title} className={cls.title} />
                 )}
