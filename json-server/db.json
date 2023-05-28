@@ -615,7 +615,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "articlesPageWasOpen": true
@@ -684,8 +684,8 @@
       "first": "Tom",
       "lastname": "Brown",
       "age": 33,
-      "currency": "EUR",
-      "country": "Belarus",
+      "currency": "RUB",
+      "country": "Kazakhstan",
       "city": "Moscow",
       "username": "admin",
       "avatar": "https://www.softpal.com/portals/97/images/our_happy_clients_profile_low_resolution_images/testimonials_profile44.png"

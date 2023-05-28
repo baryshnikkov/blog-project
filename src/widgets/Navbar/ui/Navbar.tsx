@@ -13,7 +13,7 @@ import { AvatarDropdown } from '@/features/AvatarDropdown';
 import clsDepr from './NavbarDeprecated.module.scss';
 import cls from './Navbar.module.scss';
 import { getRouteArticleCreate } from '@/shared/const/router';
-import { ToggleFeatures } from '@/shared/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface NavbarProps {
     className?: string;
@@ -80,11 +80,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     return (
         <header className={cn(clsDepr.Navbar, {}, [className])}>
-            <Text
-                className={clsDepr.appName}
-                title={t('Блог')}
-                theme={TextTheme.INVERTED_PRIMARY}
-            />
             <Button
                 theme={ButtonTheme.CLEAR_INVERTED}
                 className={clsDepr.links}

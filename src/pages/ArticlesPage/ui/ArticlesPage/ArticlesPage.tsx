@@ -14,7 +14,7 @@ import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { ArticlePageGreeting } from '@/features/ArticlePageGreeting';
-import { ToggleFeatures } from '@/shared/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
 import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';

@@ -12,7 +12,7 @@ import {
     getRouteProfile,
 } from '@/shared/const/router';
 import MainIcon from '@/shared/assets/icons/home.svg';
-import { toggleFeatures } from '@/shared/features';
+import { toggleFeatures } from '@/shared/lib/features';
 import ArticleIcon from '@/shared/assets/icons/article.svg';
 import AboutIcon from '@/shared/assets/icons/Info.svg';
 import ProfileIcon from '@/shared/assets/icons/avatar.svg';
