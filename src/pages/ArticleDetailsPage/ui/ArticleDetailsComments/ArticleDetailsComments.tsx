@@ -1,8 +1,9 @@
-import { memo, useCallback } from 'react';
+import { memo, Suspense, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { cn } from '@/shared/lib/classNames/classNames';
-import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { AddCommentForm } from '@/features/AddCommentForm';
 import { CommentList } from '@/entities/Comment';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -12,6 +13,8 @@ import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByAr
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleCommentsIsLoading } from '../../model/selectors/getArticleCommentsIsLoading/getArticleCommentsIsLoading';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Loader } from '@/shared/ui/deprecated/Loader';
 
 interface ArticleDetailsCommentsProps {
     className?: string;
@@ -38,12 +41,23 @@ export const ArticleDetailsComments = memo(
         });
 
         return (
-            <VStack className={cn('', {}, [className])} gap="16">
-                <Text size={TextSize.L} title={t('Комментарии')} />
-                <AddCommentForm onSendComment={onSendComment} />
+            <VStack gap="16" max className={cn('', {}, [className])}>
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    on={<Text size="l" title={t('Комментарии')} />}
+                    off={
+                        <TextDeprecated
+                            size={TextSize.L}
+                            title={t('Комментарии')}
+                        />
+                    }
+                />
+                <Suspense fallback={<Loader />}>
+                    <AddCommentForm onSendComment={onSendComment} />
+                </Suspense>
                 <CommentList
-                    comments={comments}
                     isLoading={commentsIsLoading}
+                    comments={comments}
                 />
             </VStack>
         );

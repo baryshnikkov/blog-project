@@ -6,7 +6,7 @@ type CardVariant = 'normal' | 'outlined' | 'light';
 
 type CardPadding = '0' | '8' | '16' | '24';
 
-type CardBorder = 'round' | 'normal';
+export type CardBorder = 'round' | 'normal' | 'partial';
 
 const mapPaddingToClass: Record<CardPadding, string> = {
     '0': 'gap_0',

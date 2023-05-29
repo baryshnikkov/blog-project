@@ -3,6 +3,7 @@ import { cn, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 type ButtonVariant = 'clear' | 'outline' | 'filled';
+type ButtonColor = 'normal' | 'success' | 'error';
 
 type ButtonSize = 'm' | 'l' | 'xl';
 
@@ -17,13 +18,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     isInverted?: boolean;
     addonLeft?: ReactNode;
     addonRight?: ReactNode;
+    color?: ButtonColor;
 }
 
 export const Button = memo((props: ButtonProps) => {
     const {
         className,
         children,
-        variant = 'clear',
+        variant = 'outline',
         square,
         disabled,
         size = 'm',
@@ -31,6 +33,7 @@ export const Button = memo((props: ButtonProps) => {
         isInverted,
         addonLeft,
         addonRight,
+        color = 'normal',
         ...otherProps
     } = props;
 
@@ -48,6 +51,7 @@ export const Button = memo((props: ButtonProps) => {
         className,
         cls[variant],
         cls[size],
+        cls[color],
     ];
 
     return (
