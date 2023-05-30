@@ -12,9 +12,9 @@ import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups';
 import { Popover } from '@/shared/ui/redesigned/Popups';
 import NotificationIconDeprecated from '@/shared/assets/icons/notification-20-20.svg';
 import NotificationIcon from '@/shared/assets/icons/notification.svg';
-import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
 import cls from './NotificationButton.module.scss';
-import { ToggleFeatures } from '@/shared/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface NotificationButtonProps {
     className?: string;

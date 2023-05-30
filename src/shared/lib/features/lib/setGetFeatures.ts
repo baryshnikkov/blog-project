@@ -11,3 +11,7 @@ export const setFeaturesFlag = (newFeaturesFlag: FeatureFlags) => {
 export const getFeaturesFlag = (flag: keyof FeatureFlags) => {
     return featuresFlags[flag];
 };
+
+export function getAllFeatureFlags() {
+    return featuresFlags;
+}

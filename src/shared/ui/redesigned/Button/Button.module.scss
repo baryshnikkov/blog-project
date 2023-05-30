@@ -1,12 +1,35 @@
 .Button {
     cursor: pointer;
     color: var(--text-redesigned);
-    padding: 6px 15px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
 
     &:hover {
         color: var(--accent-redesigned);
+
+        .addonLeft svg, .addonRight svg {
+            color: var(--accent-redesigned);
+        }
     }
 }
+
+.withAddonLeft {
+    padding: 0 16px 0 4px;
+}
+
+.withAddonRight {
+    padding: 0 4px 0 16px;
+}
+
+.addonLeft, .addonRight {
+    display: flex;
+}
+
+.addonRight svg, .addonLeft svg {
+    color: var(--hint-redesigned);
+}
+
 
 .clear {
     padding: 0;
@@ -19,8 +42,29 @@
     background: var(--light-bg-redesigned);
     border: none;
     outline: none;
-    padding: 8px 16px;
     border-radius: 34px;
+}
+
+.outline {
+    background: none;
+    border: 2px solid var(--icon-redesigned);
+    border-radius: 34px;
+
+    &:hover {
+        border: 2px solid var(--accent-redesigned);
+    }
+
+    &.normal {
+        border: 2px solid var(--icon-redesigned);
+    }
+
+    &.error {
+        border: 2px solid var(--cancel-redesigned);
+    }
+
+    &.success {
+        border: 2px solid var(--save-redesigned);
+    }
 }
 
 .square {

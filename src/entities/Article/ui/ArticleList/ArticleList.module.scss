@@ -5,6 +5,10 @@
 
 .LIST {
     flex-direction: column;
+
+    .card {
+        margin-bottom: 30px;
+    }
 }
 
 .GRID {

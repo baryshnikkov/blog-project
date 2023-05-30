@@ -7,10 +7,6 @@ export enum CardTheme {
     OUTLINED = 'outlined',
 }
 
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
     children: ReactNode;
@@ -18,6 +14,10 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
     isFullWidth?: boolean;
 }
 
+/**
+ * Устарел, используем новые компоненты из папки redesigned
+ * @deprecated
+ */
 export const Card = (props: CardProps) => {
     const {
         className,

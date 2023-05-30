@@ -2,24 +2,34 @@ import {
     ChangeEvent,
     InputHTMLAttributes,
     memo,
+    ReactNode,
     useEffect,
+    useMemo,
     useRef,
     useState,
 } from 'react';
 import { cn, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
+import { HStack } from '../Stack';
+import { Text } from '../Text';
 
 type HTMLInputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'value' | 'onChange' | 'readOnly'
+    'value' | 'onChange' | 'readOnly' | 'size'
 >;
+
+type InputSize = 's' | 'm' | 'l';
 
 interface InputProps extends HTMLInputProps {
     className?: string;
     value?: string | number;
+    label?: string;
     onChange?: (value: string) => void;
     autoFocus?: boolean;
     readonly?: boolean;
+    addonLeft?: ReactNode;
+    addonRight?: ReactNode;
+    size?: InputSize;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -31,14 +41,15 @@ export const Input = memo((props: InputProps) => {
         placeholder,
         autoFocus,
         readonly,
+        addonLeft,
+        label,
+        size = 'm',
+        addonRight,
         ...otherProps
     } = props;
 
     const [isFocused, setIsFocus] = useState(false);
-    const [carriagePosition, setCarriagePosition] = useState(0);
     const refFocus = useRef<HTMLInputElement>(null);
-
-    const isCarriageVisible = isFocused && !readonly;
 
     const onFocus = () => {
         setIsFocus(true);
@@ -48,13 +59,8 @@ export const Input = memo((props: InputProps) => {
         setIsFocus(false);
     };
 
-    const onSelect = (e: any) => {
-        setCarriagePosition(e?.target?.selectionStart);
-    };
-
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
-        setCarriagePosition(e.target.value.length);
     };
 
     useEffect(() => {
@@ -64,35 +70,42 @@ export const Input = memo((props: InputProps) => {
         }
     }, [autoFocus]);
 
-    const mods: Mods = {
-        [cls.readonly]: readonly,
-    };
+    const mods: Mods = useMemo(() => {
+        return {
+            [cls.readonly]: readonly,
+            [cls.focused]: isFocused,
+            [cls.withAddonLeft]: Boolean(addonLeft),
+            [cls.withAddonRight]: Boolean(addonRight),
+        };
+    }, [addonLeft, addonRight, isFocused, readonly]);
 
-    return (
-        <div className={cn(cls.InputWrapper, mods, [className])}>
-            {placeholder && (
-                <div className={cls.placeholder}>{`${placeholder} >`}</div>
-            )}
-            <div className={cls.carriageWrapper}>
-                <input
-                    className={cls.input}
-                    ref={refFocus}
-                    type={type}
-                    value={value}
-                    onChange={onChangeHandler}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    onSelect={onSelect}
-                    readOnly={readonly}
-                    {...otherProps}
-                />
-                {isCarriageVisible && (
-                    <span
-                        className={cls.carriage}
-                        style={{ left: `${carriagePosition * 1}px` }}
-                    />
-                )}
-            </div>
+    const input = (
+        <div className={cn(cls.InputWrapper, mods, [className, cls[size]])}>
+            <div className={cls.addonLeft}>{addonLeft}</div>
+            <input
+                ref={refFocus}
+                type={type}
+                value={value}
+                onChange={onChangeHandler}
+                className={cls.input}
+                onFocus={onFocus}
+                onBlur={onBlur}
+                readOnly={readonly}
+                placeholder={placeholder}
+                {...otherProps}
+            />
+            <div className={cls.addonRight}>{addonRight}</div>
         </div>
     );
+
+    if (label) {
+        return (
+            <HStack max gap="8">
+                <Text text={label} />
+                {input}
+            </HStack>
+        );
+    }
+
+    return input;
 });

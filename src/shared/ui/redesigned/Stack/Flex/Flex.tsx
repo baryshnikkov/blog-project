@@ -4,8 +4,9 @@ import cls from './Flex.module.scss';
 
 type FlexJustify = 'start' | 'end' | 'center' | 'between';
 type FlexAlign = 'start' | 'end' | 'center';
+type FlexWrap = 'nowrap' | 'wrap';
 export type FlexDirection = 'row' | 'column';
-type FlexGap = '4' | '8' | '16' | '32';
+type FlexGap = '4' | '8' | '16' | '24' | '32';
 
 const justifyClasses: Record<FlexJustify, string> = {
     start: cls.justifyStart,
@@ -29,6 +30,7 @@ const gapClasses: Record<FlexGap, string> = {
     4: cls.gap4,
     8: cls.gap8,
     16: cls.gap16,
+    24: cls.gap24,
     32: cls.gap32,
 };
 
@@ -44,6 +46,7 @@ export interface FlexProps extends DivProps {
     align?: FlexAlign;
     direction?: FlexDirection;
     gap?: FlexGap;
+    wrap?: FlexWrap;
     max?: boolean;
 }
 
@@ -54,6 +57,7 @@ export const Flex = (props: FlexProps) => {
         justify = 'start',
         align = 'start',
         direction = 'row',
+        wrap = 'nowrap',
         gap = 4,
         max = true,
         ...otherProps
@@ -66,8 +70,9 @@ export const Flex = (props: FlexProps) => {
             alignClasses[align],
             directionClasses[direction],
             gapClasses[gap],
+            cls[wrap],
         ],
-        [align, className, direction, gap, justify],
+        [align, className, direction, gap, justify, wrap],
     );
 
     const mods = useMemo(

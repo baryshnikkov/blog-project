@@ -599,6 +599,18 @@
       "userId": "2",
       "text": "test 1",
       "id": "CGkaxPh"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "dfdfdfdf fds f asdf asd fsdaf asdf adfdfdfdf fds f asdf asd fsdaf asdf adfdfdfdf fds f asdf asd fsdaf asdf adfdfdfdf fds f asdf asd fsdaf asdf adfdfdfdf fds f asdf asd fsdaf asdf adfdfdfdf fds f asdf asd fsdaf asdf adfdfdfdf fds f asdf asd fsdaf asdf a",
+      "id": "Xb5378S"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "f",
+      "id": "9nvKPp0"
     }
   ],
   "users": [
@@ -615,9 +627,6 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
-        "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false,
         "articlesPageWasOpen": true
       },
       "avatar": "https://www.softpal.com/portals/97/images/our_happy_clients_profile_low_resolution_images/testimonials_profile44.png"
@@ -684,8 +693,8 @@
       "first": "Tom",
       "lastname": "Brown",
       "age": 33,
-      "currency": "EUR",
-      "country": "Belarus",
+      "currency": "RUB",
+      "country": "Kazakhstan",
       "city": "Moscow",
       "username": "admin",
       "avatar": "https://www.softpal.com/portals/97/images/our_happy_clients_profile_low_resolution_images/testimonials_profile44.png"
@@ -769,6 +778,12 @@
       "rate": 4,
       "feedback": "test user",
       "id": "Ipivvfd"
+    },
+    {
+      "userId": "1",
+      "articleId": "8",
+      "rate": 4,
+      "id": "kL-vyNk"
     }
   ],
   "profile-ratings": [

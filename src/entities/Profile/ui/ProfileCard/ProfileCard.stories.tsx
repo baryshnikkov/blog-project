@@ -1,7 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import avatar from '@/shared/assets/tests/storybook.jpg';
 import { ProfileCard } from './ProfileCard';
 
 export default {
@@ -19,20 +20,20 @@ const Template: ComponentStory<typeof ProfileCard> = (args) => (
 export const Primary = Template.bind({});
 Primary.args = {
     data: {
-        first: 'Tom',
-        lastname: 'Brown',
-        age: 33,
-        currency: Currency.RUB,
-        country: Country.Russia,
-        city: 'Moscow',
         username: 'admin',
-        avatar: 'https://i.pinimg.com/736x/21/20/b0/2120b058cb9946e36306778243eadae5.jpg',
+        age: 22,
+        country: Country.Ukraine,
+        lastname: 'ulbi tv',
+        first: 'asd',
+        city: 'asf',
+        currency: Currency.USD,
+        avatar,
     },
 };
 
-export const WithError = Template.bind({});
-WithError.args = {
-    error: 'error text',
+export const withError = Template.bind({});
+withError.args = {
+    error: 'true',
 };
 
 export const Loading = Template.bind({});
