@@ -627,7 +627,8 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "articlesPageWasOpen": true
+        "articlesPageWasOpen": true,
+        "theme": "app_dark_theme"
       },
       "avatar": "https://www.softpal.com/portals/97/images/our_happy_clients_profile_low_resolution_images/testimonials_profile44.png"
     },
@@ -643,7 +644,7 @@
         "isCounterEnabled": false
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_orange_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false,
         "articlesPageWasOpen": true
